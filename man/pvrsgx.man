@@ -242,7 +242,7 @@ Adjust saturation (0 to 200). Default: 0.
 .br
 Adjust hue (-30 to 30). Default: 0.
 .SH "SEE ALSO"
-__xservername__(__appmansuffix__), __xconfigfile__(__filemansuffix__), xorgconfig(__appmansuffix__), Xserver(__appmansuffix__),
+__xservername__(__appmansuffix__), __xconfigfile__(__filemansuffix__), Xserver(__appmansuffix__),
 X(__miscmansuffix__)
 .SH AUTHORS
 Written by Nokia.

@@ -65,7 +65,6 @@ XORG_DRIVER_CHECK_EXT(DRI2, dri2proto)
 
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(XORG, [xorg-server >= 1.0.99.901 xproto fontsproto $REQUIRED_MODULES])
-sdkdir=$(pkg-config --variable=sdkdir xorg-server)
 
 AM_CONDITIONAL(PERF, [test "x$PERF" = xyes])
 if test "x$PERF" = xyes; then

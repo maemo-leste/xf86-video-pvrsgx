@@ -24,7 +24,7 @@ AC_PREREQ([2.60])
 AC_INIT([xf86-video-pvrsgx], [0.4.2], [spinal.by@gmail.com])
 
 AC_CONFIG_SRCDIR([Makefile.am])
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR(.)
 
 AM_INIT_AUTOMAKE([foreign dist-bzip2])

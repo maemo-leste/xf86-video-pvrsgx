@@ -40,6 +40,8 @@
 
 #include "xf86xv.h"
 
+#include "compat-api.h"
+
 #include "omap.h"
 
 #define PVRSGX_VERSION          4000

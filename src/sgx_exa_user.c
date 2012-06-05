@@ -24,6 +24,8 @@
 #include "sgx_exa.h"
 #include "sgx_exa_user.h"
 
+#include "compat-api.h"
+
 void sgx_exa_copy_region(DrawablePtr draw, RegionPtr reg, DrawablePtr src_draw,
 			DrawablePtr dst_draw)
 {

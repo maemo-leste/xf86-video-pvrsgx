@@ -41,6 +41,7 @@ pvrsgx_drv_la_LDFLAGS = -module -avoid-version -lm -lpvr2d
 pvrsgx_drv_ladir = @moduledir@/drivers
 
 pvrsgx_drv_la_SOURCES = \
+			compat-api.h \
 			crtc.c \
 			extfb.c \
 			extfb.h \

@@ -425,7 +425,7 @@ static CARD32 default_ckey(ScrnInfoPtr pScrn)
 static int setup_colorkey(struct omap_video_info *video_info, Bool enable)
 {
 	ScreenPtr screen = video_info->fbdev->screen;
-	ScrnInfoPtr pScrn = xf86Screens[screen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(screen);
 	uint32_t key = video_info->ckey & (pScrn->mask.red |
 					   pScrn->mask.green |
 					   pScrn->mask.blue);
@@ -696,7 +696,7 @@ static Bool destroy_pixmap_hook(PixmapPtr pixmap)
 {
 	Bool ret;
 	ScreenPtr screen = pixmap->drawable.pScreen;
-	ScrnInfoPtr pScrn = xf86Screens[screen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(screen);
 	FBDevPtr fbdev = pScrn->driverPrivate;
 
 	drawable_destroyed(fbdev, (DrawablePtr) pixmap);
@@ -712,7 +712,7 @@ static Bool destroy_window_hook(WindowPtr window)
 {
 	Bool ret;
 	ScreenPtr screen = window->drawable.pScreen;
-	ScrnInfoPtr pScrn = xf86Screens[screen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(screen);
 	FBDevPtr fbdev = pScrn->driverPrivate;
 
 	drawable_destroyed(fbdev, (DrawablePtr) window);
@@ -765,7 +765,7 @@ static void stop_video(struct omap_video_info *video_info)
 
 	if (video_info->state == OMAP_STATE_ACTIVE) {
 		ScreenPtr pScreen = video_info->fbdev->screen;
-		ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+		ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 
 		omap_overlay_disable(video_info->ovl);
 		unmap_video_mem(video_info);
@@ -836,7 +836,7 @@ static void put_overlay(struct omap_video_info *video_info)
 {
 	FBDevPtr fbdev = video_info->fbdev;
 	ScreenPtr pScreen = fbdev->screen;
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 
 	if (!video_info->ovl)
 		return;
@@ -849,7 +849,7 @@ static Bool get_overlay(struct omap_video_info *video_info)
 {
 	FBDevPtr fbdev = video_info->fbdev;
 	ScreenPtr pScreen = fbdev->screen;
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	enum fbdev_overlay_usage usage;
 
 	if (video_info->ovl)
@@ -2067,7 +2067,7 @@ static Bool omap_video_setup_private(ScreenPtr pScreen,
 				     struct omap_video_info *video_info,
 				     int i, struct omap_fb *fb)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = pScrn->driverPrivate;
 
 	ENTER();
@@ -2113,7 +2113,7 @@ static XF86VideoAdaptorPtr
 omap_video_setup_adaptor(ScreenPtr pScreen,
 			 unsigned int num_video_ports, va_list ap)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = pScrn->driverPrivate;
 	XF86VideoAdaptorPtr adapt;
 	int i;
@@ -2207,7 +2207,7 @@ omap_video_setup_adaptor(ScreenPtr pScreen,
 
 Bool fbdev_init_video(ScreenPtr pScreen, unsigned int num_video_ports, ...)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = pScrn->driverPrivate;
 	XF86VideoAdaptorPtr *adaptors = NULL, adaptor;
 	int i = 0;
@@ -2258,7 +2258,7 @@ Bool fbdev_init_video(ScreenPtr pScreen, unsigned int num_video_ports, ...)
  */
 void fbdev_fini_video(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = pScrn->driverPrivate;
 
 	pScreen->DestroyPixmap = fbdev->video_destroy_pixmap;

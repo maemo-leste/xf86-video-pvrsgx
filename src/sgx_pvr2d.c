@@ -83,7 +83,7 @@ static int pvr2d_set_frame_buffer(ScrnInfoPtr scrn_info,
 
 static Bool update_flip_pixmaps(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	struct pvr2d_page_flip *page_flip = &pvr2d_get_screen()->page_flip;
 	int i;
 
@@ -518,7 +518,7 @@ Bool PVR2DValidate(PixmapPtr pPixmap, struct PVR2DPixmap * ppix, Bool cleanup)
 
 Bool PVR2DCreateScreenResources(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	struct pvr2d_page_flip *page_flip = &pvr2d_get_screen()->page_flip;
 	int i;
 

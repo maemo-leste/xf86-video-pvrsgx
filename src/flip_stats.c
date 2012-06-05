@@ -158,7 +158,7 @@ static CARD32 statsCallback(OsTimerPtr timer, CARD32 time, pointer arg)
 
 Bool flip_stats_init(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 	int t;
 
@@ -175,7 +175,7 @@ Bool flip_stats_init(ScreenPtr pScreen)
 
 void flip_stats_fini(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 
 	if (fbdev->flip_stats_timer)

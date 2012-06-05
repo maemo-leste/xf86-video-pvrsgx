@@ -83,7 +83,7 @@ PixmapPtr sgx_exa_create_pixmap(ScreenPtr pScreen,
 				int depth, int bitsPerPixel,
 				int pitch, PVR2DMEMINFO *mem_info)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	PixmapPtr pPixmap;
 	Bool ret;
 

@@ -952,7 +952,7 @@ static void FBDevAdjustFrame(int scrnIndex, int x, int y, int flags)
 static Bool FBDevScreenInit(int scrnIndex, ScreenPtr pScreen, int argc,
 			    char **argv)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fPtr = FBDEVPTR(pScrn);
 	VisualPtr visual;
 	unsigned int pitch;
@@ -1110,7 +1110,7 @@ static void FBDevFreeScreen(int scrnIndex, int flags)
 
 static Bool FBDevCreateScreenResources(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fPtr = FBDEVPTR(pScrn);
 	Bool res;
 

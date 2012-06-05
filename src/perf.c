@@ -119,7 +119,7 @@ static CARD32 perfCountersCallback(OsTimerPtr timer, CARD32 time, pointer arg)
 
 Bool PVR2D_PerfInit(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 	int t;
 
@@ -135,7 +135,7 @@ Bool PVR2D_PerfInit(ScreenPtr pScreen)
 
 void PVR2D_PerfFini(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 	if (fbdev->perf_timer)
 		TimerFree(fbdev->perf_timer);

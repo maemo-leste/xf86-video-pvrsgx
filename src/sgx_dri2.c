@@ -137,7 +137,7 @@ static void pvr2d_dri2_get_sys_buf(DrawablePtr draw,
 static int pvr2d_dri2_fs_flip_capable(struct pvr2d_page_flip *page_flip,
 				      DrawablePtr draw)
 {
-	FBDevPtr fbdev = FBDEVPTR(xf86Screens[draw->pScreen->myNum]);
+	FBDevPtr fbdev = FBDEVPTR(xf86ScreenToScrn(draw->pScreen));
 
 	if (fbdev->conf.swap_control != DRI2_SWAP_CONTROL_FLIP)
 		return 0;
@@ -282,7 +282,7 @@ static void poison_buffer(DrawablePtr draw, DRI2BufferPtr buffer,
 			  CARD8 red, CARD8 green, CARD8 blue)
 {
 	ScreenPtr pScreen = draw->pScreen;
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	xRectangle rect = {
 		.width = draw->width,
 		.height = draw->height,
@@ -306,7 +306,7 @@ static void poison_buffer(DrawablePtr draw, DRI2BufferPtr buffer,
 static DRI2BufferPtr pvr2d_dri2_create_buf(DrawablePtr draw,
 				unsigned int attachment, unsigned int format)
 {
-	FBDevPtr fbdev = FBDEVPTR(xf86Screens[draw->pScreen->myNum]);
+	FBDevPtr fbdev = FBDEVPTR(xf86ScreenToScrn(draw->pScreen));
 	DRI2BufferPtr buffer;
 	struct pvr2d_buf_priv *priv;
 	struct pvr2d_page_flip *page_flip = &pvr2d_get_screen()->page_flip;
@@ -395,7 +395,7 @@ static Bool dri2_buffer_is_fs(struct pvr2d_page_flip *page_flip,
 
 static void  pvr2d_dri2_reuse_buf(DrawablePtr draw, DRI2BufferPtr buffer)
 {
-	FBDevPtr fbdev = FBDEVPTR(xf86Screens[draw->pScreen->myNum]);
+	FBDevPtr fbdev = FBDEVPTR(xf86ScreenToScrn(draw->pScreen));
 	struct pvr2d_page_flip *page_flip = &pvr2d_get_screen()->page_flip;
 	struct pvr2d_buf_priv *priv = buffer->driverPrivate;
 
@@ -836,7 +836,7 @@ static void pvr2d_dri2_flip_handler(int fd, unsigned overlay,
 		(struct dri2_swap_request *)user_data;
 	struct pvr2d_screen *screen = pvr2d_get_screen();
 	struct pvr2d_page_flip *page_flip = &screen->page_flip;
-	ScrnInfoPtr pScrn = xf86Screens[req->screen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(req->screen);
 
 	/* Wait until all CRTCs have flipped */
 	if (--req->num_flips_pending > 0)
@@ -942,7 +942,7 @@ static void flip_swap_req(struct dri2_swap_request *req)
 {
 	struct pvr2d_screen *screen = pvr2d_get_screen();
 	struct pvr2d_page_flip *page_flip = &screen->page_flip;
-	ScrnInfoPtr pScrn = xf86Screens[req->screen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(req->screen);
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 	int i;
 
@@ -1015,7 +1015,7 @@ static int pvr2d_dri2_sync_req(ClientPtr client, DrawablePtr draw,
 	struct dri2_swap_request *req;
 	struct pvr2d_screen *screen = pvr2d_get_screen();
 	struct pvr2d_page_flip *page_flip = &screen->page_flip;
-	ScrnInfoPtr pScrn = xf86Screens[draw->pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(draw->pScreen);
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 	RegionRec reg;
 
@@ -1127,7 +1127,7 @@ bool pvr2d_dri2_schedule_damage(DrawablePtr draw, RegionPtr region)
 	struct dri2_swap_request *req;
 	struct pvr2d_screen *screen = pvr2d_get_screen();
 	struct pvr2d_page_flip *page_flip = &screen->page_flip;
-	ScrnInfoPtr pScrn = xf86Screens[draw->pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(draw->pScreen);
 
 	/* check if there is update scheduled already */
 	req = swap_reqs_find_by_update(page_flip->front_idx);
@@ -1175,7 +1175,7 @@ static int pvr2d_dri2_schedule_swap(ClientPtr client, DrawablePtr draw,
 				CARD64 remainder, DRI2SwapEventPtr func,
 				void *data)
 {
-	FBDevPtr fbdev = FBDEVPTR(xf86Screens[draw->pScreen->myNum]);
+	FBDevPtr fbdev = FBDEVPTR(xf86ScreenToScrn(draw->pScreen));
 	struct pvr2d_screen *screen = pvr2d_get_screen();
 	struct pvr2d_page_flip *page_flip = &screen->page_flip;
 	struct pvr2d_buf_priv *priv = back->driverPrivate;
@@ -1251,7 +1251,7 @@ Bool DRI2_Init(ScreenPtr pScreen)
 		.ReuseBufferNotify = pvr2d_dri2_reuse_buf,
 	};
 
-	if (!xf86LoadSubModule(xf86Screens[pScreen->myNum], "dri2"))
+	if (!xf86LoadSubModule(xf86ScreenToScrn(pScreen), "dri2"))
 		return FALSE;
 
 	screen->flip_event_handler = pvr2d_dri2_flip_handler;

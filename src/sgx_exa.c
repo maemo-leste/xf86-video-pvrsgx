@@ -1083,7 +1083,7 @@ Bool EXA_Init(ScreenPtr pScreen)
 		.minorversion = EXA_VERSION_MINOR
 	};
 	int errmaj, errmin;
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 
 	if (!LoadSubModule

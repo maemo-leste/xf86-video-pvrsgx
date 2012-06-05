@@ -99,7 +99,7 @@ DamageExtFBReport(DamagePtr pDamage, RegionPtr pRegion, void *closure)
 
 Bool ExtFBCreateScreenResources(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 
 	if (!fbdev->extfb.enabled)
@@ -131,7 +131,7 @@ Bool ExtFBCreateScreenResources(ScreenPtr pScreen)
 
 void ExtFBCloseScreen(ScreenPtr pScreen)
 {
-	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
+	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 
 	if (fbdev->extfb.damage) {

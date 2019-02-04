@@ -2034,12 +2034,12 @@ bool omap_output_open(struct omap_output *out,
 			goto error;
 	}
 
-	r = dss2_read_int(dss2_display, idx, "mirror", &mirror);
+	r = dss2_read_int(dss2_fb, idx, "mirror", &mirror);
 	if (r && errno != ENOENT)
 		goto error;
 	can_mirror = !r;
 
-	r = dss2_read_int(dss2_display, idx, "rotate", &rotate);
+	r = dss2_read_int(dss2_fb, idx, "rotate", &rotate);
 	if (r && errno != ENOENT)
 		goto error;
 	can_rotate = !r;
@@ -2057,7 +2057,7 @@ bool omap_output_open(struct omap_output *out,
 	if (r)
 		goto error;
 
-	r = dss2_read_int(dss2_display, idx, "update_mode", &update_mode);
+	r = dss2_read_int(dss2_fb, idx, "update_mode", &update_mode);
 	if (r)
 		goto error;
 
@@ -2185,13 +2185,13 @@ bool omap_output_setup(struct omap_output *out,
 
 
 	if (out->can_rotate && rotate != out->rotate) {
-		r = dss2_write_int(dss2_display, out->idx, "rotate", rotate);
+		r = dss2_write_int(dss2_fb, out->idx, "rotate", rotate);
 		if (r)
 			goto error;
 	}
 
 	if (out->can_mirror && mirror != out->mirror) {
-		r = dss2_write_int(dss2_display, out->idx,
+		r = dss2_write_int(dss2_fb, out->idx,
 				   "mirror", !!(mirror & OMAP_MIRROR_HORZ));
 		if (r)
 			goto error_rotate;
@@ -2205,7 +2205,7 @@ bool omap_output_setup(struct omap_output *out,
 
  error_rotate:
 	if (out->can_rotate)
-		dss2_write_int(dss2_display, out->idx, "rotate", out->rotate);
+		dss2_write_int(dss2_fb, out->idx, "rotate", out->rotate);
  error:
 	ERROR();
 	return false;

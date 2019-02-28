@@ -1,0 +1,248 @@
+.\" shorthand for double quote that works everywhere.
+.ds q \N'34'
+.TH FBDEV __drivermansuffix__ __vendorversion__
+.SH NAME
+fbdev \- video driver for TI's OMAP 3 SoCs with a POWERVR SGX graphics core
+.SH SYNOPSIS
+.nf
+.B "Section \*qDevice\*q"
+.BI "  Identifier \*q"  devname \*q
+.B  "  Driver \*qfbdev\*q"
+\ \ ...
+.B EndSection
+.fi
+.SH DESCRIPTION
+.B fbdev
+is an __xservername__ driver for PowerVR SGX.  This is an accelerated
+driver using EXA and DRI2, the following framebuffer depths are
+supported: 8, 15, 16, 24, 32. RandR multi-head configuration is
+supported for builtin LCD and TV.
+.SH SUPPORTED HARDWARE
+The 
+.B fbdev
+driver supports TI's OMAP 3 SoCs with a POWERVR SGX graphics core.
+.SH CONFIGURATION DETAILS
+Please refer to __xconfigfile__(__filemansuffix__) for general configuration
+details.  This section only covers configuration details specific to
+this driver.
+.PP
+For this driver it is not required to specify modes in the screen 
+section of the config file.  The
+.B fbdev
+driver uses RandR configuration for modesetting.
+.PP
+The following driver 
+.B Options
+are supported:
+.TP
+.BI "Option \*qPerfTime\*q \*q" integer \*q
+Periodically print the SGX performance counters: number of hardware and software
+copy and solid fill operations, cache flushes and invalidates.  The time is
+specified in milliseconds.  This option is only effective when the driver has
+been compiled with --enable-perf.  Default: 0/off.
+.TP
+.BI "Option \*qPerfReset\*q \*q" boolean \*q
+Reset the SGX performance counters after printing them.  This option is only
+effective when the driver has been compiled with --enable-perf.  Default: off.
+.TP
+.BI "Option \*qTestCopy\*q \*q" boolean \*q
+Performs a blit using a CRC pattern, then reads back the memory and verifies the
+CRC.  Significant performance penalties will be incurred when enabling this
+option!  Default: off.
+.TP
+.BI "Option \*qTestCopyOnly\*q \*q" boolean \*q
+Only perform the blit using the CRC pattern; do not perform the real blit
+afterwards.  Enabling this will cause incorrect rendering.  Default: off.
+.TP
+.BI "Option \*qRenderSync\*q \*q" boolean \*q
+Wait for rendering to complete.  Default: on.
+.TP
+.BI "Option \*qVSync\*q \*q" boolean \*q
+Synchronize pageflip or blit with scanout. Default: on.
+.TP
+.BI "Option \*qSwapMethod\*q \*q" string \*q
+Select the method used for buffer swap. Default: blit.
+.br
+blit    \-\- Use blit from the back buffer to the front buffer.
+.br
+flip    \-\- Exchange back and front buffers.
+.TP
+.BI "Option \*qPageFlipBuffers\*q \*q" integer \*q
+Number of page flip buffers to use. Default: 3.
+.TP
+.BI "Option \*qFlipStatsTime\*q \*q" integer \*q
+Periodically print the page flip statistics: number of swap requests,
+render complete events, flip complete events etc. The time is specified in
+milliseconds.  This option is only effective when the driver has
+been compiled with --enable-flip-stats.  Default: 0/off.
+.TP
+.BI "Option \*qFlipStatsReset\*q \*q" boolean \*q
+Reset the flip statistics counters after printing them.  This option is only
+effective when the driver has been compiled with --enable-flip-stats.
+Default: off.
+.TP
+.BI "Option \*qCanScreenSizeChange\*q \*q" boolean \*q
+Can screen size be changed via XRandR? Default: off.
+.TP
+.BI "Option \*qPoisonGetBuffers\*q \*q" boolean \*q
+Poison the DRI2 back buffers with a red color? Default: off.
+.TP
+.BI "Option \*qPoisonSwapBuffers\*q \*q" boolean \*q
+Poison the window front buffers with a yellow color if SwapBuffers is
+performed without GetBuffers? Default: off.
+
+.SH OUTPUT CONFIGURATION
+The driver supports runtime configuration of the outputs via XRandR output
+properties.
+.PP
+.SS LCD
+LCD panel
+.TP
+.B SignalFormat
+Purely informational. Default: LVDS.
+.TP
+.B ConnectorType
+Purely informational. Default: Panel.
+.TP
+.B VideoAlpha
+Alpha blending factor for video (0-255). Will be combined with the
+XV_OVERLAY_ALPHA value from the Xv port to produce the final alpha blending
+factor. The final alpha value = VideoAlpha * XV_OVERLAY_ALPHA / 255.
+Default: 255.
+.TP
+.B GraphicsAlpha
+Alpha blending factor for graphics (0-255). Default: 255.
+.TP
+.B AlphaMode
+Enable or disable alpha blending (0 or 1). Default: 1.
+.SS TV
+Composite TV output
+.TP
+.B SignalProperties
+Selected TV standard (PAL or NTSC). Default: PAL.
+.TP
+.B SignalFormat
+Selected TV standard (Composite-PAL or Composite-NTSC).
+Default: Composite-PAL.
+.TP
+.B ConnectorType
+Purely informational. Default: TV-Composite.
+.TP
+.B VideoAlpha
+See LCD
+.TP
+.B GraphicsAlpha
+See LCD
+.TP
+.B AlphaMode
+See LCD
+.TP
+.B TVAspectRatio
+The physical aspect ratio of the TV (4:3 or 16:9). Default: 4:3.
+.TP
+.B TVDynamicAspectRatio
+Controls whether the driver can freely choose the actually used aspect ratio. If
+enabled, the driver may choose to use a 4:3 aspect ratio even if TVAspectRatio
+indicates that a 16:9 TV is used. The driver informs the TV about the used aspect
+ratio using WSS (Widescreen signalling). The TV should then adapt to the new
+aspect automatically, in order to display the final image in the correct aspect
+ratio. Some TVs however don't support WSS so sometimes it may be beneficial to
+disable this feature. Default: 1.
+.TP
+.B TVScale
+Scaling factor that controls the size of the image (0-100). A value of 100 means
+that the image will occupy the full width or height of the active video area,
+while maintaining the correct aspect ratio. Smaller values naturally make the
+final image smaller. The default value has been chosen so that it avoids having
+the image appear in the overscan area. Default: 90.
+.TP
+.B TVXOffset
+The horizontal offset from the left edge of the active video area. 0 means that
+the driver uses a hardcoded default value, which has been selected so that the
+image would appear centered within the visible video area. A value 1 would
+position the image immediately in the left edge of the active video area.
+Increasing the value would move the image to the right.
+Default: 0.
+.TP
+.B TVYOffset
+The vertical offset from the top edge of the active video area. 0 means that the
+driver uses a hardcoded default value, which has been selected so that the image
+would appear centered within the visible video area. A value 1 would position
+the image immediately in the top edge of the active video area. Increasing the
+value would move the image downwards. Default: 0.
+.TP
+.B XvCloneFullscreen
+Controls whether Xv content can be cloned to this output. If enabled, Xv content
+visible on the LCD will appear fullscreen on the TV, assuming the
+XV_CLONE_FULLSCREEN port attribute on the Xv port is also enabled. Default: 1.
+.SH XV OVERLAY VIDEO
+The driver implements an overlay video Xv adaptor which uses the OMAP DISPC
+to perform color space conversion and scaling. The adaptor has two ports.
+The formats supported are YUY2, UYVY, I420, YV12, RV12, RV16, RV32, AV12 and
+AV32. The following port attributes are supported.
+.TP
+.B XV_CRTC
+Controls which XRandR CRTC shows the video overlay. A specia value of -1
+indicates that the driver chooses the CRTC itself based on the coverage
+of the video area. Default: -1.
+.TP
+.B XV_SYNC_TO_VBLANK
+Synchronize buffers swaps with the display refresh to avoid tearing. Default: 1.
+.TP
+.B XV_COLORKEY
+The colorkey value used. The overlay will only be visible if the underlying
+graphics pixel matches this value. Default: green.
+.TP
+.B XV_AUTOPAINT_COLORKEY
+Controls whether the driver automatically paints the colorkey onto the window.
+Default: 1.
+.TP
+.B XV_DISABLE_COLORKEY
+Disable color keying. The overlay will be fully visible when this is enabled,
+regardless of the graphics contents below it. Default: 0.
+.TP
+.B XV_DOUBLE_BUFFER
+Use double buffering to avoid tearing. Default: 1.
+.TP
+.B XV_OVERLAY_ALPHA
+Alpha blending factor for this overlay. See VideoAlpha in the XRandR section.
+Default: 255.
+.TP
+.B XV_CLONE_FULLSCREEN
+Clone this Xv port to the TV? See XvCloneFullscreen in the XRandR section.
+Default: 1.
+.TP
+.B XV_STACKING
+Control the stacking order of Xv overlays. A value of 0 means "don't care".
+An Xv port with a value 2 will appear on top of an Xv port with a value of 1.
+Must be configured before the first XvPutImage request is issued on the port.
+Default: 0.
+.TP
+.B XV_ROTATION
+Controls the rotation and reflection of the video overlay. The value is
+must be valid XRandR Rotation value ie. a combination of RR_Rotate_0,
+RR_Rotate_90, RR_Rotate_180 or RR_Rotate_280, and
+RR_Reflect_X, RR_Reflect_Y. Default: RR_Rotate_0.
+.SH XV TEXTURED VIDEO
+The driver implements a textured video Xv adaptor which uses the SGX to perform
+color space conversion and scaling. The adaptor has two ports. The formats
+supported are YUY2, UYVY, I420 and YV12. The following port attributes are
+supported.
+.TP
+.B XV_BRIGHTNESS
+Adjust brightness (-50 to 50). Default: 0.
+.TP
+.B XV_CONTRAST
+Adjust contrast (-100 to 100). Default: 0.
+.TP
+.B XV_SATURATION
+Adjust saturation (0 to 200). Default: 0.
+.TP
+.B XV_HUE
+.br
+Adjust hue (-30 to 30). Default: 0.
+.SH "SEE ALSO"
+__xservername__(__appmansuffix__), __xconfigfile__(__filemansuffix__), xorgconfig(__appmansuffix__), Xserver(__appmansuffix__),
+X(__miscmansuffix__)
+.SH AUTHORS
+Written by Nokia.

@@ -1,0 +1,1567 @@
+xserver-xorg-video-fbdev (1:0.4.0-245+0m6) karmic; urgency=low
+
+  * This entry has been added by BIFH queue processor
+    version has been changed to 1:0.4.0-245+0m6
+
+ -- Stout Andrew Michael <ext-andrew.stout@nokia.com>  Fri, 04 Feb 2011 18:13:37 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-245) karmic; urgency=low
+
+  * Fixes: NB#222545 - xvstacking is drawing green retangulars
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Fri, 04 Feb 2011 16:21:19 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-244) karmic; urgency=low
+
+  * Add support for poisoning DRI2 buffers
+  * Skip useless buffer copies during fullscreen migration
+  * Fixes: NB#221961 - Silence remaining valgrind errors
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 01 Feb 2011 17:29:31 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-243) karmic; urgency=low
+
+  * Plug some possible memory leaks
+  * Fixes: NB#219250 - Clean up the pixmap allocation code
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 25 Jan 2011 13:35:20 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-242) karmic; urgency=low
+
+  * Disable extfb when only automatic update displays are present
+  * Cleanups
+  * Remove dead code
+  * Fix a few possible memory leaks
+  * Fix valgrind errors
+  * Fixes: NB#218498 - FBDevPreInit: Conditional jump or move depends on uninitialised value(s)
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Fri, 14 Jan 2011 15:27:17 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-241) karmic; urgency=low
+
+  * Cleanups
+  * Eliminate Xv<->CRTC clone switching glitch
+  * Fixes: NB#216222 - Don't try to enable invisible overlays
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 13 Jan 2011 15:30:05 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-240) karmic; urgency=low
+
+  * Fix a possible crash during pixmap migration
+  * Fixes: NB#216238 - Document the XV attributes and XRandR properties in the man page
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 12 Jan 2011 18:13:43 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-239) karmic; urgency=low
+
+  * Register delayed mem destroy block handler only when needed
+  * Make extfb track internal damage to make software cursor visible
+  * Fixes: NB#216698 - Cache some screen sized shm pixmaps
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 11 Jan 2011 19:50:28 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-238) karmic; urgency=low
+
+  * Remove Xv scaling restrictions
+  * Fix a possible NULL pointer dereference
+  * Fix output coordinate calculations when CRTC is not at 0,0
+  * Update Xv overlays during display mode changes
+  * Fixes: NB#216267 - Implement Xv ReputImage hook
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 05 Jan 2011 14:21:22 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-237) karmic; urgency=low
+
+  * Fix server reset
+  * Don't leak the screen pixmap
+  * Ensure adequate pitch alignment for the page flip buffers
+  * Fix depth=12 support
+  * Misc cleanups
+  * Fixes: NB#216219 - Fix crash on X server reset
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 28 Dec 2010 16:36:15 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-236) karmic; urgency=low
+
+  * Rename XV_OMAP_VSYNC to XV_SYNC_TO_VBLANK
+  * Rename XV_OMAP_CLONE to XV_CLONE_FULLSCREEN
+  * Rename XvOmapCloneAllowed to XvCloneFullscreen
+  * Fix XV_VSYNC and XV_DOUBLE_BUFFER and make both the default
+  * Fixes: NB#216217 - Use more standard Xv port attibute names
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Fri, 10 Dec 2010 17:11:55 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-235) karmic; urgency=low
+
+  * Start display update after Xv autopaint color key fill
+  * Update the full display area after a mode change
+  * Add FlipStatsReset option
+  * Code cleanups
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 09 Dec 2010 19:55:18 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-234) karmic; urgency=low
+
+  * Fixes: NB#198747 - Only one client at a time can access the page flip buffers
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 08 Dec 2010 17:29:14 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-233) karmic; urgency=low
+
+  * Console spam removal
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Fri, 03 Dec 2010 20:44:50 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-232) karmic; urgency=low
+
+  * Fixes NB#205170 - Don't cache flush pixmaps that aren't used by the GPU
+  * Skip disabled overlays in page flip handling
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 01 Dec 2010 14:57:59 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-231) karmic; urgency=low
+
+  * Fixes: NB#206361 - assert(old) fails in pvr2d_dri2_sync_req()
+  * Code cleanups
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 25 Nov 2010 19:13:07 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-230) karmic; urgency=low
+
+  * Fixes: NB#206361 - Avoid assertion when page flip buffers are stolen
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 23 Nov 2010 12:49:23 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-229) karmic; urgency=low
+
+  * Update display for both old and new Xv overlay coordinates
+  * Fix rotated Xv clipping
+  * Fix display update coalescing
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 17 Nov 2010 21:31:54 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-228) karmic; urgency=low
+
+  * Query display physical size from the kernel
+  * Remove dead RandR code
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Fri, 12 Nov 2010 16:02:29 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-227) karmic; urgency=low
+
+  * Handle non-pageflip display updates via DRI2 swap queue
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 11 Nov 2010 20:52:51 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-226) karmic; urgency=low
+
+  * Minor Xv optimizations
+  * New config option CanChangeScreenSize
+  * Fixes: NB#196282 - Prevent XRandR screen size changes
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 11 Nov 2010 18:16:29 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-225) karmic; urgency=low
+
+  * Fixes: NB#201715 - DRI2 assert segfaults xserves
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 10 Nov 2010 19:25:06 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-224) karmic; urgency=low
+
+  * Fixes: NB#187431 - Preserve framebuffer content during boot
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Mon, 08 Nov 2010 16:51:24 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-223) karmic; urgency=low
+
+  * Config option parsing improvements and other cleanups
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 28 Oct 2010 18:42:32 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-222) karmic; urgency=low
+
+  * Initial support for blinkless driver init
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Fri, 15 Oct 2010 19:49:52 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-221) karmic; urgency=low
+
+  * Convert XV_ALPHA_MODE and XV_GRAPHICS_ALPHA to RandR output properties
+  * Add VideoAlpha RandR output property that further modulates XV_OVERLAY_ALPHA
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 06 Oct 2010 14:50:46 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-220) karmic; urgency=low
+
+  * Reverted X server dependency updates.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 05 Oct 2010 16:25:09 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-217) karmic; urgency=low
+
+  * Report damage after rendering
+  * Damage reported during page flip no longer causes extra display updates
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 21 Sep 2010 20:05:03 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-216) karmic; urgency=low
+
+  * Minor cleanups
+  * Fixes: NB#192673 - Do not send _OMAP_VIDEO_OVERLAY PropertyNotify events needlessly
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Mon, 20 Sep 2010 17:07:53 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-215) karmic; urgency=low
+
+  * Silence compiler warnings
+  * Silence lintian warnings
+  * Fix artefacts when using software rendered pixmap as texture
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 15 Sep 2010 21:26:29 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-214) karmic; urgency=low
+
+  * Add printing of malloc and SHM allocation statistics
+  * Avoid hash table walk when X front buffer changes
+  * Fix a build problem caused by missing xacestr.h
+  * Code reorganization and cleanup
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 01 Sep 2010 17:28:29 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-213) karmic; urgency=low
+
+  * Debianization and build system cleanups
+  * Fixes: NB#187598 - Add autoconf build dependency
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 25 Aug 2010 17:26:12 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-212) karmic; urgency=low
+
+  * Fixes: NB#180323 - Cope with the drawable disappearing before kernel events are processed
+  * Fixes: NB#173073 - Send damage events when page flipping
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Mon, 23 aug 2010 17:31:37 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-211) karmic; urgency=low
+
+  * Do not use SGX with pixmaps that are too large
+  * Fixes: NB#181619 - Respect SGX surface size limits
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Mon, 16 aug 2010 18:47:38 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-210) karmic; urgency=low
+
+  * TV out fixes
+  * Add TVXOffset, TVYOffset, TVDynamicAspectRatio XRandR properties
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 08 Jul 2010 19:48:52 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-209) karmic; urgency=low
+
+  * Prepare for fake landscape hack removal from DSS
+  * Xv rotation support
+  * Xv bug fixes
+  * Fixes: NB#178367 - Use the correct buffer index when cloning video to TV out
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 08 Jul 2010 19:47:55 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-208) karmic; urgency=low
+
+  * Remove useless PVR2D function calls
+  * Some DRI2 page flip vs. RandR interaction fixes
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 08 Jul 2010 19:46:39 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-207) karmic; urgency=low
+
+  * Added required dependency on x11proto-kb-dev.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 08 Jul 2010 18:48:34 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-206) karmic; urgency=low
+
+  * Recompile for new xserver with new ABI
+
+ -- Pauli Nieminen <ext-pauli.nieminen@nokia.com>  Thu, 08 Jul 2010 15:21:35 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-205) karmic; urgency=low
+
+  * Disable timer based display updates while page flipping is happening
+  * Fixes: NB#173139 - Graphics layer gets updated in a jagged way when xvideo is running
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 23 Jun 2010 18:05:08 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-204) karmic; urgency=low
+
+  * Support for more than two page flip buffers. Default is now three.
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Fri, 18 Jun 2010 17:37:56 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-203) karmic; urgency=low
+
+  * TV out scaling fixes.
+  * Wait for SGX to finish before freeing page flip buffers
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Thu, 17 Jun 2010 19:18:21 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-202) karmic; urgency=low
+
+  * Partial update support for DRI2
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 16 Jun 2010 16:09:26 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-201) karmic; urgency=low
+
+  * Pitch alignment fix and cleanups
+  * Fixes: NB#156525 - XCreateBitmapFromData corrupts data
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Fri, 11 Jun 2010 21:27:47 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-200) karmic; urgency=low
+
+  * Enable vsync
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Fri, 11 Jun 2010 17:31:57 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-199) karmic; urgency=low
+
+  * Page flip optimization and other improvements
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 08 Jun 2010 17:34:51 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-198) karmic; urgency=low
+
+  * Add performance counter framework, and miscellaneous fixes.
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Mon, 07 Jun 2010 13:15:45 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-197) karmic; urgency=low
+
+  * Enable page flipping
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 01 Jun 2010 13:04:56 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-196) karmic; urgency=low
+
+  * Coverity fixes
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Mon, 31 May 2010 17:24:46 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-195) karmic; urgency=low
+
+  * Remove useless buffer copy when migrating to fullscreen
+  * Fix a possible crash during blit based DRI2 buffer swap
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 25 May 2010 16:39:43 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-194) karmic; urgency=low
+
+  * Add config options for vsync and render sync
+  * Update the man page
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Tue, 11 May 2010 15:36:57 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-193) karmic; urgency=low
+
+  * Xv overlay stacking order can be controlled
+  * Fix Xv scaling problem
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Mon, 10 May 2010 15:46:27 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-192) karmic; urgency=low
+
+  * Fix display rotation with fake landscape displays
+  * Fix a leak when resizing the framebuffer
+  * Update information in debian/control
+
+ -- Ville Syrjala <ville.syrjala@nokia.com>  Wed, 05 May 2010 18:04:58 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-191) karmic; urgency=low
+
+  * Hang for while page flipping work until further discussion.
+
+ -- Tiago Vignatti <tiago.vignatti@nokia.com>  Fri, 30 Apr 2010 14:35:52 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-190) karmic; urgency=low
+
+  * Render completion (by Topi)
+
+ -- Tiago Vignatti <tiago.vignatti@nokia.com>  Wed, 28 Apr 2010 18:03:36 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-189) karmic; urgency=low
+
+  * Update dri2 initialization to work with xserver 1.8.99-2
+
+ -- Pauli Nieminen <ext-pauli.nieminen@nokia.com>  Thu, 22 Apr 2010 15:59:52 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-188) karmic; urgency=low
+
+  * Page flipping work (by Topi)
+
+ -- Tiago Vignatti <tiago.vignatti@nokia.com>  Fri, 16 Apr 2010 15:49:39 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-186) karmic; urgency=low
+
+  * Xrandr rework (by Ville)
+
+ -- Tiago Vignatti <tiago.vignatti@nokia.com>  Wed, 14 Apr 2010 17:10:35 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-185) karmic; urgency=low
+
+  * Manual updates: fix leaking of timer.
+  * Manual updates: cancel timer properly.
+
+ -- Rami Ylimaki <ext-rami.ylimaki@nokia.com>  Mon, 15 Mar 2010 10:17:57 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-184) karmic; urgency=low
+
+  * Manual update support for fbdev.
+
+ -- Rami Ylimaki <ext-rami.ylimaki@nokia.com>  Wed, 10 Mar 2010 13:27:58 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-183) karmic; urgency=low
+
+  * xv: Mainly cosmetic stuff for xf86-video-fbdev
+  * xv: Eliminate useless function parameters
+  * xv: Use standard variable names for screen objects
+  * Silence some compiler warnings
+  * fbdev: Convert to C99 initializers
+  * sysfs: Replace last '\n' with '\0'
+  * fbdev: Remove the fbdevhw symbol lists
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 05 Mar 2010 14:55:27 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-182) karmic; urgency=low
+
+  * debian/control: updated dependencies to xserver-xorg-dev (>= 2:1.7.993-9)
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 04 Mar 2010 17:54:39 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-181) karmic; urgency=low
+
+  * DRI2: Clear the DRI2InfoRec struct rather than explicitly NULLing each member.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 03 Mar 2010 14:34:23 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-180) karmic; urgency=low
+
+  * BIFH version bump...
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 23 Feb 2010 16:19:12 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-179) karmic; urgency=low
+
+  * Enable manual update for DRI2 PVR2DDRI2CopyRegion
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 23 Feb 2010 14:58:16 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-178) karmic; urgency=low
+
+  * Fix new DRI2 swapbuffers interface usage.
+
+ -- Tiago Vignatti <tiago.vignatti@nokia.com>  Tue, 26 Jan 2010 16:09:49 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-177) karmic; urgency=low
+
+  * remove libdrm depedency
+
+ -- Tiago Vignatti <tiago.vignatti@nokia.com>  Tue, 19 Jan 2010 18:20:53 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-176) jaunty; urgency=low
+
+  * version bump to get 1.4 DDK (yeah, the blob again...)
+
+ -- Tiago Vignatti <tiago.vignatti@nokia.com>  Tue, 15 Dec 2009 15:35:52 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-175) jaunty; urgency=low
+
+  * Inclusion of XV's omap based sink from Ville.
+
+ -- Tiago Vignatti <tiago.vignatti@nokia.com>  Mon, 14 Dec 2009 15:26:00 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-174) hardy; urgency=low
+
+  * Nokia upstream update
+
+ -- Tiago Vignatti <tiago.vignatti@nokia.com>  Wed, 23 Sep 2009 19:53:40 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-173) hardy; urgency=low
+
+  * Revert "Disabled the IsOverlapping() check and enabled cache flushing."
+    Fixes: NB#135415 - Cache flushes on every pixmap->window blit operation in DDX
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 21 Sep 2009 13:01:58 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-172) hardy; urgency=low
+
+  * Xv: Several improvements from Ville.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 17 Sep 2009 15:11:28 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-171) hardy; urgency=low
+
+  * Avoid setting pScreen->CreateScreenResources to NULL as it breaks
+    regeneration.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 16 Sep 2009 16:52:57 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-170) hardy; urgency=low
+
+  * Cleaned up a few unused variables and functions.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 16 Sep 2009 13:07:15 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-169) hardy; urgency=low
+
+  * Lock the shared memory segment upon allocation.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 15 Sep 2009 13:09:54 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-168) hardy; urgency=low
+
+  * Disabled the IsOverlapping() check and enabled cache flushing.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 14 Sep 2009 16:41:39 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-167) hardy; urgency=low
+
+  * xv: Use 16:9 aspect ratio if there's enough vram for 720p
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 10 Sep 2009 04:49:03 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-166) hardy; urgency=low
+
+  * Revert "EXA: Ensure the cache is flushed after Pixmap access."
+    Fixes: NB#135415 - Cache flushes on every pixmap->window blit operation in DDX
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 09 Sep 2009 08:34:14 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-165) hardy; urgency=low
+
+  * EXA: Avoid printing successfully initialized messages; only print errors.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 09 Sep 2009 07:26:18 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-164) hardy; urgency=low
+
+  * Avoid calling fbdevHWRestore() in FBDevLeaveVT().
+    Fixes: NB#135520 - Shutting down device in portrait mode messes up the shutdown nokia logo
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 08 Sep 2009 13:46:55 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-163) hardy; urgency=low
+
+  * QueryBlitsComplete should be the first check in the SW heuristic functions.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 07 Sep 2009 11:12:39 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-162) hardy; urgency=low
+
+  * fbdev: Fix rotation corruption
+    Fixes: NB#132358 - Rotation: corruption in a call from portrait to landscape mode
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 21 Aug 2009 10:20:14 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-161) hardy; urgency=low
+
+  * xv: Add double buffering support
+    Fixes: NB#132952 - Implement video double buffering
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 19 Aug 2009 15:06:07 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-160) hardy; urgency=low
+
+  * Fixes: NB#129116 - Regression in XCopyArea performance for X11perf window-to-window copy use-case
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 18 Aug 2009 16:32:03 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-159) hardy; urgency=low
+
+  * (EE) FBDEV(0): FBIOPUT_VSCREENINFO: Invalid argument
+    Fixes: NB#132500 - X server dies at shutdown after a failing IOCTL
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 14 Aug 2009 08:29:40 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-158) hardy; urgency=low
+
+  * EXA: Added the BACKING_PIXMAP check to PVR2DFinishAccess() again.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 13 Aug 2009 16:42:15 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-157) hardy; urgency=low
+
+  * Fixes: NB#132640 - XVideo causes the compositor to redraw the screen during playback
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 12 Aug 2009 14:48:30 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-156) hardy; urgency=low
+
+  * Xv: Cleaned up the omap_video_put() function, changed color key.
+    Fixes: NB#132556 - X video should use default green color key
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 12 Aug 2009 10:30:42 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-155) hardy; urgency=low
+
+  * Fixes: NB#132359 - Charging ui is not shown in acting dead with dedicated charger
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 11 Aug 2009 19:31:45 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-154) hardy; urgency=low
+
+  * EXA: Only flush the cache in FinishAccess() when it is a backing pixmap.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sun, 09 Aug 2009 18:16:59 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-153) hardy; urgency=low
+
+  * PVR: Add framebuffer reset functionality.
+    Fixes: NB#129196 - Framebuffer resets are ignored by SGX
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sat, 08 Aug 2009 16:42:42 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-152) hardy; urgency=low
+
+  * Fixes: NB#31288 - Updating the license headers of the DDX driver
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 06 Aug 2009 11:13:32 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-151) hardy; urgency=low
+
+  * fbdev: Converted the driver to use the SGX cache flush interface.
+    Fixes: NB#129494 - Remove pvr2d.ko
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 03 Aug 2009 06:59:38 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-150) hardy; urgency=low
+
+  * Xv: Added missing DamageDamageRegion() call to the overlay video code.
+    Fixes: NB#121983 - Camera displays blank screen without buttons and indicators after playing the recorded video clip in media player from post recording view
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 30 Jul 2009 14:00:50 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-149) hardy; urgency=low
+
+  * RandR: Use new xf86RandRInhibitEvents call, clean up debugging
+    Fixes: NB#122222 - X sends a large number of unnecessary Expose events on screen rotation to all applications
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 28 Jul 2009 14:10:39 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-148) hardy; urgency=low
+
+  * EXA: Ensure the cache is flushed after Pixmap access.
+    Fixes: NB#129116 - Regression in XCopyArea performance for X11perf window-to-window copy use-case
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 28 Jul 2009 08:28:30 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-147) hardy; urgency=low
+
+  * Removed some forbidden keywords from the ChangeLog.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 21 Jul 2009 16:55:47 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-146) hardy; urgency=low
+
+  * Allocate direct rendering pixmaps with SHM memory.
+    Fixes: NB#128994 - Pixmap migration for direct rendering possibly effecting performance
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 20 Jul 2009 14:53:54 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-145) hardy; urgency=low
+
+  * fbdev: Check the return value of fbCopyArea() as it may be NULL.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 17 Jul 2009 12:24:23 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-144) hardy; urgency=low
+
+  * Coverity Prevent: CID 11607: CHECKED_RETURN in PVR2DGivePixmapOwnership
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 17 Jul 2009 11:27:00 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-143) hardy; urgency=low
+
+  * Coverity Prevent: CID 16101: RESOURCE_LEAK in PVR2DCopy
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 16 Jul 2009 18:44:26 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-142) hardy; urgency=low
+
+  * Coverity Prevent: CID 17889: UNINIT in fbdev_property_callback
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 16 Jul 2009 18:01:02 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-141) hardy; urgency=low
+
+  * Coverity Prevent: CID 16947: RESOURCE_LEAK in omap_video_setup_adaptors
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 16 Jul 2009 17:43:11 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-140) hardy; urgency=low
+
+  * Coverity Prevent: CID 16133: USE_AFTER_FREE in PVR2DDestroyPixmap
+    Fixes: NB#128625 - PVR2DDestroyPixmap: Freed pointer "ppix" passed as an argument to a function
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 16 Jul 2009 17:20:34 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-139) hardy; urgency=low
+
+  * Fixes: NB#128200 - Allow color keying to be disabled to reduce memory bandwith pressure
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 16 Jul 2009 06:46:10 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-138) hardy; urgency=low
+
+  * fbdev: Removed the TV-out screen saver blanking.
+    Fixes: NB#127383 - screen is not reflected in TV when display backlight goes off
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 10 Jul 2009 13:11:55 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-137) hardy; urgency=low
+
+  * EXA: Corrected a minor debug printf error.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 09 Jul 2009 13:23:48 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-136) hardy; urgency=low
+
+  * Corrections for rendering ALPHA8 surfaces.
+    Fixes: NB#121009 - RGBA-NG produces weird artifacts
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 09 Jul 2009 10:34:41 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-135) hardy; urgency=low
+
+  * Revert "configure.ac: Removed libpciaccess dependency."
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 07 Jul 2009 19:55:39 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-134) hardy; urgency=low
+
+  * rotation: Changed the ErrorF() calls to DebugF() calls.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 06 Jul 2009 16:08:02 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-133) hardy; urgency=low
+
+  * rotation: Converted the property into a toggle.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 06 Jul 2009 14:22:09 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-132) hardy; urgency=low
+
+  * rotation: toggle_plane() is unnecessary and avoids 4 ioctl() calls...
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 03 Jul 2009 16:11:55 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-131) hardy; urgency=low
+
+  * configure.ac: Removed libpciaccess dependency.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 02 Jul 2009 13:41:20 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-130) hardy; urgency=low
+
+  * Xv: Added several debugging patches from Ville.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 30 Jun 2009 14:04:50 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-129) hardy; urgency=low
+
+  * Removed dependency and code using libpciaccess.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 26 Jun 2009 19:08:40 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-128) hardy; urgency=low
+
+  * Fixes: NB#121285 - use the new OMAPFB_GET_VRAM_INFO ioctl to fetch vram size.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 24 Jun 2009 17:14:24 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-127) hardy; urgency=low
+
+  * RandR: Added a hack for suppressing reconfiguration of the root window.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 23 Jun 2009 23:06:50 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-126) hardy; urgency=low
+
+  * fbdev: Avoid possible segfault due to uninitialized DPMS hook functions.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 23 Jun 2009 22:57:00 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-125) hardy; urgency=low
+
+  * Xv: Neither plane_color or wnd_color are setup by the OMAP2 FB driver.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 23 Jun 2009 20:50:36 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-124) hardy; urgency=low
+
+  * Xv: Removed a workaround for an uninitialized variable from the kernel.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 23 Jun 2009 18:03:10 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-123) hardy; urgency=low
+
+  * Xv: Coverity: Corrected a MISSING_BREAK error.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 23 Jun 2009 12:50:52 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-122) hardy; urgency=low
+
+  * Avoid calling FBIOBLANK from the DPMS code; caused problems with MCE.
+    Fixes: NB#119006 - X-server interacts with MCE in a bad manner when display state changes
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 22 Jun 2009 11:36:26 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-121) hardy; urgency=low
+
+  * Avoid printing an error when counting the available video planes.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 18 Jun 2009 12:17:59 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-120) hardy; urgency=low
+
+  * Removed the CPU workaround for copying overlapping regions with SGX.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 17 Jun 2009 14:08:04 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-119) hardy; urgency=low
+
+  * tvout: Moved the screensaver logic into the driver and added TV-out blanking.
+    Fixes: NB#121834 - When the device is locked , device screen displayed on TV screen
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 11 Jun 2009 16:19:55 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-118) hardy; urgency=low
+
+  * rotation: added profiling code enabled in debug mode.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 08 Jun 2009 12:23:26 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-117) hardy; urgency=low
+
+  * SGX: Avoid using HW copy when source is the same as destination.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 03 Jun 2009 18:21:58 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-116) hardy; urgency=low
+
+  * Attempt to fix crash with pixmap cache off.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 29 May 2009 15:48:34 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-115) hardy; urgency=low
+
+  * ChangeLog: Added two Xv and TV-out fixes from Ville.
+  * xv: Cleanup video plane enable/disable
+    Fixes: NB#114531 - Prevent Xv from flashing junk frames
+  * tvout: Add WSS support
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 29 May 2009 15:27:59 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-114) hardy; urgency=low
+
+  * Disable pixmap cache, for real.
+  * Fix PVR2DAllocNormal.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 28 May 2009 17:36:54 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-113) hardy; urgency=low
+
+  * xv: Round memory allocations to 8 pixels
+    Fixes: NB#110755 - Allocate at least 8x8 pixels of video memory
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 28 May 2009 15:07:32 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-112) hardy; urgency=low
+
+  * xv: OMAP: Long lines (128 chars) in omap_video_put() is more readable.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 26 May 2009 18:09:38 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-111) hardy; urgency=low
+
+  * xv: OMAP: Split the procfs utility functions into a separate file.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 26 May 2009 18:05:03 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-110) hardy; urgency=low
+
+  * xv: OMAP: Improved the adaptor setup in the omap_video_setup_adaptors()
+    function.
+  * xv: SGX: Avoid unnecessary memcpy() on the Xv attributes.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 26 May 2009 16:27:28 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-109) hardy; urgency=low
+
+  * Massive clean up and rework of the driver (mostly X video.)
+  * xv: Removed support for generic Xv adaptors (none on our platform.)
+  * xv: OMAP: Support for 24bpp (packed 32bp) TrueColor video.
+  * xv: OMAP: Split the plane counting into a separate
+    omap_video_count_planes() function.
+  * xv: OMAP: Split the min/max encoding size calculation into a separate
+    omap_video_dummy_encoding() function.
+  * xv: SGX: Moved the SGX specific atoms into the appropriate file and made
+    them static.
+  * fbdev: Moved some of the common macros into fbdev.h
+  * xv/tvout: Moved the venc_tv_standard and related defines to fbdev.h
+  * xv: Renamed the SGX_IMAGE_MAX_W/H defines to VIDEO_IMAGE_MAX_W/H.
+  * xv: SGX: Prefer to use the ARRAY_SIZE() macro instead of NUM_FOO defines.
+  * tvout: Moved the call to omap_tvout_init() into the fbdev_init_video()
+    function.
+  * fbdev: Removed unused SGX_XVIDEO_EXTENSION_ENABLE define.
+  * fbdev: Replaced TRACE_ENTER/EXIT with ENTER/LEAVE and removed obsolete
+    debug bool variable.
+  * xv: SGX: Removed unnecessary NULL initialization of unused Xv functions.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 26 May 2009 16:11:02 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-108) hardy; urgency=low
+
+  * xv: Fix incorrect parentheses in open_plane()
+    Fixes: NB#117396 - Camera UI is displayed sometimes with out any pre-capture indicators and crashes
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 25 May 2009 18:57:44 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-107) hardy; urgency=low
+
+  * Replaced the PAGE_SIZE define with calls to getpagesize()
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 25 May 2009 15:10:39 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-106) hardy; urgency=low
+
+  * fbdev: Removed the unused stub HW cursor functions.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sun, 24 May 2009 13:06:42 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-105) hardy; urgency=low
+
+  * xv: Corrected several unused variable warnings in the SGX Xv code.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sun, 24 May 2009 13:05:43 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-104) hardy; urgency=low
+
+  * xv: Workaround for kernel OMAPFB_GET_CAPS bug
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 22 May 2009 17:19:26 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-103) hardy; urgency=low
+
+  * Added some improved error checking to the open_plane() function.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 22 May 2009 16:37:43 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-102) hardy; urgency=low
+
+  * Avoid a segfault in drawable_destroyed() due to fbdev->num_video_ports not being reset.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 22 May 2009 14:57:00 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-101) hardy; urgency=low
+
+  * Disabled the SGX cache again; reduces memory usage slightly.
+  * Cleaned up the SHM and malloc() allocation functions.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 21 May 2009 13:00:51 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-100) hardy; urgency=low
+
+  * ChangeLog: sysfs and TV-out fixes from Ville.
+    tvout: Don't toggle the display on/off needlessly
+    Fixes: NB#109460 - Don't touch the video plane when toggling TV-out
+    sysfs: Terminate sysfs strings properly
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 20 May 2009 16:43:50 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-99) hardy; urgency=low
+
+  * Avoid NULLing the malloc() address when returning an SHM segment from the cache.
+    Fixes: NB#109777 - Sometimes B3 & S3 doesnot boot to UI
+    Fixes: NB#115966 - Device crashes with lock/unlock
+    Fixes: NB#117774 - Device reboots with network handovers
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 20 May 2009 12:35:09 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-98) hardy; urgency=low
+
+  * ChangeLog: Added several Xv/TV-out fixes.
+    tvout: Scaling fixes
+    tvout: Add scaling adjustment
+    Fixes: NB#112144 - Do not overscan the TV-out picture
+    tvout: Remove DSS2 bug workarounds
+    xv: Fix an incorrect type in sizeof
+    tvout: Silence compiler warnings
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 18 May 2009 11:36:06 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-97) hardy; urgency=low
+
+  * Avoid using sprintf due to possible buffer overflow.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sun, 17 May 2009 08:25:21 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-96) hardy; urgency=low
+
+  * Avoid printing SGX cache debug messages.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sun, 17 May 2009 07:56:07 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-95) hardy; urgency=low
+
+  * tvout: Follow DSS2 rotation changes
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 15 May 2009 02:44:14 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-94) hardy; urgency=low
+
+  * tvout: Handle screen rotation
+    Fixes: NB#111658 - Fix TV-out rotation handling
+  * fbdev: Rotate screen resolution
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 13 May 2009 19:38:31 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-93) hardy; urgency=low
+
+  * Re-enabled a (smaller) SGX cache.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 06 May 2009 17:21:49 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-92) hardy; urgency=low
+
+  * xv: Repaint the colorkey when the plane setup has changed
+    Fixes: NB#113351 - xv output not visible
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 06 May 2009 16:59:26 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-91) hardy; urgency=low
+
+  * xv: Cleanup copy/scale functions
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 06 May 2009 16:58:51 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-90) hardy; urgency=low
+
+  * xv: Implement limited cropping
+    Fixes: NB#113890 - Xv video cropping is not handled
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 30 Apr 2009 00:31:02 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-89) hardy; urgency=low
+
+  * xv: Add RGB16 and RGB32 support
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 30 Apr 2009 00:30:22 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-88) hardy; urgency=low
+
+  * Revert "Added support for 8bpp (PVR2D_ALPHA8) Pixmap acceleration."
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 29 Apr 2009 16:57:50 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-87) hardy; urgency=low
+
+  * Fixed corruption when doing SW copy on overlapping rectangles.
+    Fixes: NB#110503 - SGX: Miscellaneous corruption with EXA acceleration enabled
+    Fixes: NB#111304 - unwanted streaks observed in hildon widgets
+    Fixes: NB#111810 - Tearing in pannable areas
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 29 Apr 2009 15:26:35 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-86) hardy; urgency=low
+
+  * Only expand the malloc() based allocation to page aligned when enabling caching.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 28 Apr 2009 08:12:13 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-85) hardy; urgency=low
+
+  * xv: Check available video memory
+    Fixes: NB#110755 - Device to device video call is not working due to bad alloc errors from X
+    Fixes: NB#113232 - Xv can't display maximum frame size it reports as supported
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 28 Apr 2009 07:25:39 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-84) hardy; urgency=low
+
+  * Remember to deinitialize the overlay video.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 28 Apr 2009 07:23:24 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-83) hardy; urgency=low
+
+  * The benefit from caching doesn't outweigh the extra memory usage...
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 27 Apr 2009 10:08:07 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-82) hardy; urgency=low
+
+  * Generalized the cache code to support malloc() based allocations.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 27 Apr 2009 08:16:44 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-81) hardy; urgency=low
+
+  * Split the SHM segment cache code into separate files.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 27 Apr 2009 07:43:44 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-80) hardy; urgency=low
+
+  * Added blank and clear to the fbdev_crtc_rotate function.
+    Fixes: NB#112951 - ROTATION: Mosaic corruption when screen is rotated
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 27 Apr 2009 06:25:31 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-79) hardy; urgency=low
+
+  * sgx_exa.c:500: warning: passing argument 1 of 'fbCopyArea' from incompatible pointer type
+    sgx_exa.c:500: warning: passing argument 2 of 'fbCopyArea' from incompatible pointer type
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 23 Apr 2009 08:59:02 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-78) hardy; urgency=low
+
+  * sysfs: Moved the sysfs interface into separate files.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 20 Apr 2009 15:28:07 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-77) hardy; urgency=low
+
+  * xv: Don't repaint the colorkey needlessly
+    Fixes: NB#110180 - hildon-desktop/Xorg CPU usage with XVideo
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 15 Apr 2009 03:03:14 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-76) hardy; urgency=low
+
+  * Added a compile flag USE_MALLOC.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 14 Apr 2009 04:34:07 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-75) hardy; urgency=low
+
+  * Added hardware rotation support.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 10 Apr 2009 00:47:24 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-74) hardy; urgency=low
+
+  * tvout: Support TV standard changing with DSS2
+  * xv: Report maximum image size as 2048x2048
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 09 Apr 2009 15:26:52 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-73) hardy; urgency=low
+
+  * Corrections for the EXA acceleration disable patch.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 09 Apr 2009 14:53:40 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-72) hardy; urgency=low
+
+  * ./linux/omapfb.h:182: error: expected ':', ',', ';', '}' or '__attribute__' before '*' token
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 09 Apr 2009 12:27:37 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-71) hardy; urgency=low
+
+  * Disabled EXA accelerated operations.
+    Fixes: NB#109606 - X operations with HW "acceleration" turned off
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 09 Apr 2009 11:59:36 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-70) hardy; urgency=low
+
+  * Temporary work around for BIFH being unable to locate omapfb.h.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 09 Apr 2009 11:56:39 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-69) hardy; urgency=low
+
+  * Updated the kernel headers dependency to 2.6.28-20091104r01.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 09 Apr 2009 11:28:08 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-68) hardy; urgency=low
+
+  * Use the system OMAP FB header file.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sun, 05 Apr 2009 16:26:54 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-67) hardy; urgency=low
+
+  * Xv: Corrected the overlay video color key.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sat, 04 Apr 2009 08:48:22 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-66) hardy; urgency=low
+
+  * Added heuristics for EXA copy operations.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sat, 04 Apr 2009 08:39:13 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-65) hardy; urgency=low
+
+  * Added printing of the CreatePixmap pointer.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 03 Apr 2009 08:15:20 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-64) hardy; urgency=low
+
+  * Removed an annoying typo during pointer printing.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 02 Apr 2009 18:04:22 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-63) hardy; urgency=low
+
+  * Added support for 8bpp (PVR2D_ALPHA8) Pixmap acceleration.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 02 Apr 2009 17:26:24 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-62) hardy; urgency=low
+
+  * DRI2: Removed a possible memory leak in PVR2DDRI2CreateBuffers.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 02 Apr 2009 09:44:18 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-61) hardy; urgency=low
+
+  * xv: Make XV_COLORKEY attribute 24 bits
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 01 Apr 2009 01:36:55 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-60) hardy; urgency=low
+
+  * sgx_pvr2d.c:304: warning: passing argument 3 of 'GetFromCache' from incompatible pointer type
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 31 Mar 2009 03:46:48 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-59) hardy; urgency=low
+
+  * fbdev.c:540: warning: implicit declaration of function 'fbdev_init_video'
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 31 Mar 2009 03:43:00 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-58) hardy; urgency=low
+
+  * sgx_pvr2d.c:619: warning: implicit declaration of function 'PVR2DUnmapAllPixmaps'
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 31 Mar 2009 03:42:17 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-57) hardy; urgency=low
+
+  * Reverted accidentally disabling EXA in commit 04dffe379dcdc37d5310b76e730daa2aac016798.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 31 Mar 2009 03:35:52 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-56) hardy; urgency=low
+
+  * Cosmetic: Indented the code with Linux kernel standards...
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 31 Mar 2009 03:33:10 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-55) hardy; urgency=low
+
+  * Unmap pixmaps from GPU in low memory conditions.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 31 Mar 2009 03:05:10 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-54) hardy; urgency=low
+
+  * Added support for asynchronous video blit.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 30 Mar 2009 08:09:03 +0300
+
+xserver-xorg-video-fbdev (1:0.4.0-53) hardy; urgency=low
+
+  * xv: Don't suppress damage for autopaint colorkey
+    Fixes NB#106142.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 25 Mar 2009 12:52:30 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-52) hardy; urgency=low
+
+  * Revert "Only allocate SHM segments when they are required for DRI."
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 23 Mar 2009 18:54:19 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-51) hardy; urgency=low
+
+  * ${Source-Version} is deprecated!
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 23 Mar 2009 10:51:23 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-50) hardy; urgency=low
+
+  * Corrected the dependency between the debug and standard packages.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 19 Mar 2009 17:06:09 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-49) hardy; urgency=low
+
+  * Added the overlay video scaling fixes from Ville.
+    Fixes NB#96281: Small XVideo windows fail with BadAlloc
+    Fixes NB#97328: Xv doesn't accept D-1 PAL (720x576) video input
+    Fixes NB#104493: Xv shows green with some resolutions
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 19 Mar 2009 14:50:56 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-48) hardy; urgency=low
+
+  * Fixes NB#106305: xserver-xorg-video-fbdev does not have a package with debugging symbols
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 18 Mar 2009 14:44:45 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-47) hardy; urgency=low
+
+  * Provide the debugging package.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 18 Mar 2009 14:40:57 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-46) hardy; urgency=low
+
+  * Only allocate SHM segments when they are required for DRI.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 17 Mar 2009 18:52:33 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-45) hardy; urgency=low
+
+  * Substantially increased the cache size and number of cache segments.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 17 Mar 2009 18:51:11 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-44) hardy; urgency=low
+
+  * Added heuristics for solid fills.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 17 Mar 2009 18:40:36 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-43) hardy; urgency=low
+
+  * Disabled the verbose Pixmap debugging by default.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 17 Mar 2009 16:32:31 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-42) hardy; urgency=low
+
+  * Added more verbose Pixmap debugging.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 16 Mar 2009 20:01:20 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-41) hardy; urgency=low
+
+  * Provide both the overlay and SGX Xv adaptors.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 16 Mar 2009 17:37:23 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-40) hardy; urgency=low
+
+  * Add DSS2 TV-out support.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 16 Mar 2009 14:04:03 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-39) hardy; urgency=low
+
+  * Revert "Enabled SGX accelerated solid fills."
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 11 Mar 2009 14:32:04 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-38) hardy; urgency=low
+
+  * Enabled SGX accelerated solid fills.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 10 Mar 2009 11:30:24 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-37) hardy; urgency=low
+
+  * Added OMAP TV out support, Round 2.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 09 Mar 2009 13:39:36 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-36) hardy; urgency=low
+
+  * Corrected missing initialization of fd (via fbdevHWGetFD.)
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 09 Mar 2009 13:35:21 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-35) hardy; urgency=low
+
+  * Fix compilation when DebugF() is active.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 09 Mar 2009 13:33:53 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-34) hardy; urgency=low
+
+  * Added various OMap overlay video fixes.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 06 Mar 2009 16:02:57 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-33) hardy; urgency=low
+
+  * Disabled the OMap RePut optimization.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 05 Mar 2009 11:02:23 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-32) hardy; urgency=low
+
+  * Depend on the real kernel tag, 2.6.28-20090902r04.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 04 Mar 2009 18:49:36 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-31) hardy; urgency=low
+
+  * Added a pool of SHM segments for pixmaps.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 02 Mar 2009 12:33:18 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-30) hardy; urgency=low
+
+  * Added Janusz's debugging statistics patch.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 02 Mar 2009 12:31:37 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-29) hardy; urgency=low
+
+  * Merge branch 'randr-branch'
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 02 Mar 2009 11:57:20 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-28) hardy; urgency=low
+
+  * Added OMAP TV out support.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 20 Feb 2009 13:48:05 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-27) hardy; urgency=low
+
+  * Optimized changing ownership of pixmaps to GPU.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 19 Feb 2009 15:23:56 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-26) hardy; urgency=low
+
+  * Disabled XRENDER extension as it's broken on SGX 1.3.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 19 Feb 2009 15:10:09 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-25) hardy; urgency=low
+
+  * Updated kernel to 2.6.99-20090218~sgx2
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 18 Feb 2009 18:09:59 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-24) hardy; urgency=low
+
+  * Don't invalidate the cache when the GPU has not written anything to the
+    cached memory.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 18 Feb 2009 11:43:50 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-23) hardy; urgency=low
+
+  * A hack for composition when mask==src.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 17 Feb 2009 15:44:49 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-22) hardy; urgency=low
+
+  * Fixed a composite bug when source and mask refer to the same surface.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 17 Feb 2009 15:39:43 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-21) hardy; urgency=low
+
+  * Updated kernel dependency to 2.6.99-20090217~sgx2.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 17 Feb 2009 10:35:49 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-20) hardy; urgency=low
+
+  * Must depend on exactly 2.6.27-20090801~sgx2; .28 is too new.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 16 Feb 2009 17:06:01 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-19) hardy; urgency=low
+
+  * Updated kernel dependency to ~sgx2.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 16 Feb 2009 15:54:29 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-18) hardy; urgency=low
+
+  * Updated to kernel 2.6.27-20090801~sgx1.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Fri, 13 Feb 2009 02:18:17 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-17) hardy; urgency=low
+
+  * Changed kernel dependency to 2.6.27-20090602~sgx1.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 12 Feb 2009 22:55:14 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-16) hardy; urgency=low
+
+  * Updated the kernel headers dependency, yet again...
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Wed, 11 Feb 2009 00:08:53 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-15) hardy; urgency=low
+
+  * Updated the kernel headers dependency.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 10 Feb 2009 21:01:23 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-14) hardy; urgency=low
+
+  * Set an appropriate initial mode for RandR.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 10 Feb 2009 11:30:00 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-13) hardy; urgency=low
+
+  * Updated kernel dependency to 2.6.27-20090609~sgx1.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Sat, 07 Feb 2009 00:30:06 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-12) hardy; urgency=low
+
+  * Corrected an unstripped binary error that causes the build to fail.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 05 Feb 2009 20:15:37 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-11) hardy; urgency=low
+
+  * Updated the control file to require the newer kernel headers.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 05 Feb 2009 18:49:20 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-10) hardy; urgency=low
+
+  * Added initial and incomplete RandR support.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Thu, 05 Feb 2009 14:55:15 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-9) hardy; urgency=low
+
+  * Fixed incorrect initialization of the shmid...
+  * Fixes: NB#95127.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Tue, 03 Feb 2009 17:05:36 +0200
+
+xserver-xorg-video-fbdev (1:0.4.0-8) unstable; urgency=low
+
+  * Fixing debian version.
+
+ -- Yauheni Kaliuta <yauheni.kaliuta@nokia.com>  Sun, 25 Jan 2009 19:43:16 +0200
+
+xserver-xorg-video-fbdev (0.4.0) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Oliver McFadden <oliver.mcfadden@nokia.com>  Mon, 19 Jan 2009 18:21:46 +0200

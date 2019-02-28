@@ -1,25 +1,25 @@
 .\" shorthand for double quote that works everywhere.
 .ds q \N'34'
-.TH FBDEV __drivermansuffix__ __vendorversion__
+.TH PVRSGX __drivermansuffix__ __vendorversion__
 .SH NAME
-fbdev \- video driver for TI's OMAP 3 SoCs with a POWERVR SGX graphics core
+pvrsgx \- video driver for TI's OMAP 3 SoCs with a POWERVR SGX graphics core
 .SH SYNOPSIS
 .nf
 .B "Section \*qDevice\*q"
 .BI "  Identifier \*q"  devname \*q
-.B  "  Driver \*qfbdev\*q"
+.B  "  Driver \*qpvrsgx\*q"
 \ \ ...
 .B EndSection
 .fi
 .SH DESCRIPTION
-.B fbdev
+.B pvrsgx
 is an __xservername__ driver for PowerVR SGX.  This is an accelerated
 driver using EXA and DRI2, the following framebuffer depths are
 supported: 8, 15, 16, 24, 32. RandR multi-head configuration is
 supported for builtin LCD and TV.
 .SH SUPPORTED HARDWARE
 The 
-.B fbdev
+.B pvrsgx
 driver supports TI's OMAP 3 SoCs with a POWERVR SGX graphics core.
 .SH CONFIGURATION DETAILS
 Please refer to __xconfigfile__(__filemansuffix__) for general configuration
@@ -28,7 +28,7 @@ this driver.
 .PP
 For this driver it is not required to specify modes in the screen 
 section of the config file.  The
-.B fbdev
+.B pvrsgx
 driver uses RandR configuration for modesetting.
 .PP
 The following driver 

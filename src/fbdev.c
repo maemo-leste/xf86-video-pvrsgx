@@ -483,9 +483,9 @@ realloc_fb(ScrnInfoPtr pScrn,
 
 /* -------------------------------------------------------------------- */
 
-_X_EXPORT DriverRec FBDEV = {
-	.driverVersion = FBDEV_VERSION,
-	.driverName = FBDEV_DRIVER_NAME,
+_X_EXPORT DriverRec PVRSGX = {
+	.driverVersion = PVRSGX_VERSION,
+	.driverName = PVRSGX_DRIVER_NAME,
 	.Identify = FBDevIdentify,
 	.Probe = FBDevProbe,
 	.AvailableOptions = FBDevAvailableOptions,
@@ -495,7 +495,7 @@ _X_EXPORT DriverRec FBDEV = {
 static SymTabRec FBDevChipsets[] = {
 	{
 		.token = 0,
-		.name = "fbdev",
+		.name = "pvrsgx",
 	},
 	{
 		.token = -1,
@@ -607,7 +607,7 @@ static const OptionInfoRec FBDevOptions[] = {
 MODULESETUPPROTO(FBDevSetup);
 
 static XF86ModuleVersionInfo FBDevVersRec = {
-	.modname = "fbdev",
+	.modname = "pvrsgx",
 	.vendor = MODULEVENDORSTRING,
 	._modinfo1_ = MODINFOSTRING1,
 	._modinfo2_ = MODINFOSTRING2,
@@ -621,7 +621,7 @@ static XF86ModuleVersionInfo FBDevVersRec = {
 	.checksum = { 0, 0, 0, 0 },
 };
 
-_X_EXPORT XF86ModuleData fbdevModuleData = {
+_X_EXPORT XF86ModuleData pvrsgxModuleData = {
 	.vers = &FBDevVersRec,
 	.setup = FBDevSetup,
 };
@@ -632,7 +632,7 @@ pointer FBDevSetup(pointer module, pointer opts, int *errmaj, int *errmin)
 
 	if (!setupDone) {
 		setupDone = TRUE;
-		xf86AddDriver(&FBDEV, module, 0);
+		xf86AddDriver(&PVRSGX, module, 0);
 		return (pointer) 1;
 	} else {
 		if (errmaj)
@@ -670,7 +670,7 @@ static const OptionInfoRec *FBDevAvailableOptions(int chipid, int busid)
 
 static void FBDevIdentify(int flags)
 {
-	xf86PrintChipsets(FBDEV_NAME, "driver for framebuffer", FBDevChipsets);
+	xf86PrintChipsets(PVRSGX_NAME, "driver for framebuffer", FBDevChipsets);
 }
 
 static Bool FBDevProbe(DriverPtr drv, int flags)
@@ -688,7 +688,7 @@ static Bool FBDevProbe(DriverPtr drv, int flags)
 	if (flags & PROBE_DETECT)
 		return FALSE;
 
-	numDevSections = xf86MatchDevice(FBDEV_DRIVER_NAME, &devSections);
+	numDevSections = xf86MatchDevice(PVRSGX_DRIVER_NAME, &devSections);
 	if (numDevSections <= 0)
 		return FALSE;
 
@@ -702,9 +702,9 @@ static Bool FBDevProbe(DriverPtr drv, int flags)
 
 		foundScreen = TRUE;
 
-		pScrn->driverVersion = FBDEV_VERSION;
-		pScrn->driverName = FBDEV_DRIVER_NAME;
-		pScrn->name = FBDEV_NAME;
+		pScrn->driverVersion = PVRSGX_VERSION;
+		pScrn->driverName = PVRSGX_DRIVER_NAME;
+		pScrn->name = PVRSGX_NAME;
 		pScrn->Probe = FBDevProbe;
 		pScrn->PreInit = FBDevPreInit;
 		pScrn->ScreenInit = FBDevScreenInit;
@@ -885,7 +885,7 @@ static Bool FBDevPreInit(ScrnInfoPtr pScrn, int flags)
 
 	pScrn->progClock = TRUE;
 	pScrn->rgbBits = 8;
-	pScrn->chipset = "fbdev";
+	pScrn->chipset = "pvrsgx";
 
 	/* handle options */
 	xf86CollectOptions(pScrn, NULL);

@@ -36,53 +36,53 @@ PVR2D_CFLAGS = \
 
 AM_CFLAGS = @XORG_CFLAGS@ $(PVR2D_CFLAGS)
 
-fbdev_drv_la_LTLIBRARIES = fbdev_drv.la
-fbdev_drv_la_LDFLAGS = -module -avoid-version -lm -lpvr2d
-fbdev_drv_ladir = @moduledir@/drivers
+pvrsgx_drv_la_LTLIBRARIES = pvrsgx_drv.la
+pvrsgx_drv_la_LDFLAGS = -module -avoid-version -lm -lpvr2d
+pvrsgx_drv_ladir = @moduledir@/drivers
 
-fbdev_drv_la_SOURCES = \
-		       crtc.c \
-		       extfb.c \
-		       extfb.h \
-		       fbdev.c \
-		       fbdev.h \
-		       flip_stats.h \
-		       omap.c \
-		       omap.h \
-		       omap_sysfs.c \
-		       omap_sysfs.h \
-		       omap_tvout.c \
-		       omap_tvout.h \
-		       omap_video.c \
-		       omap_video_formats.c \
-		       omap_video_formats.h \
-		       output.c \
-		       perf.h \
-		       sgx_cache.c \
-		       sgx_cache.h \
-		       sgx_dri2.c \
-		       sgx_dri2.h \
-		       sgx_exa_user.c \
-		       sgx_exa_user.h \
-		       sgx_exa.c \
-		       sgx_exa.h \
-		       sgx_pvr2d.c \
-		       sgx_pvr2d.h \
-		       sgx_pvr2d_alloc.c \
-		       sgx_pvr2d_alloc.h \
-		       sgx_pvr2d_flip.c \
-		       sgx_pvr2d_flip.h \
-		       sgx_xv.c \
-		       sgx_xv.h \
-		       x-hash.c \
-		       x-hash.h \
-		       x-list.c \
-		       x-list.h
+pvrsgx_drv_la_SOURCES = \
+			crtc.c \
+			extfb.c \
+			extfb.h \
+			fbdev.c \
+			fbdev.h \
+			flip_stats.h \
+			omap.c \
+			omap.h \
+			omap_sysfs.c \
+			omap_sysfs.h \
+			omap_tvout.c \
+			omap_tvout.h \
+			omap_video.c \
+			omap_video_formats.c \
+			omap_video_formats.h \
+			output.c \
+			perf.h \
+			sgx_cache.c \
+			sgx_cache.h \
+			sgx_dri2.c \
+			sgx_dri2.h \
+			sgx_exa_user.c \
+			sgx_exa_user.h \
+			sgx_exa.c \
+			sgx_exa.h \
+			sgx_pvr2d.c \
+			sgx_pvr2d.h \
+			sgx_pvr2d_alloc.c \
+			sgx_pvr2d_alloc.h \
+			sgx_pvr2d_flip.c \
+			sgx_pvr2d_flip.h \
+			sgx_xv.c \
+			sgx_xv.h \
+			x-hash.c \
+			x-hash.h \
+			x-list.c \
+			x-list.h
 
 if PERF
-fbdev_drv_la_SOURCES += perf.c
+pvrsgx_drv_la_SOURCES += perf.c
 endif
 
 if FLIP_STATS
-fbdev_drv_la_SOURCES += flip_stats.c
+pvrsgx_drv_la_SOURCES += flip_stats.c
 endif

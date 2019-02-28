@@ -42,9 +42,9 @@
 
 #include "omap.h"
 
-#define FBDEV_VERSION           4000
-#define FBDEV_NAME              "FBDEV"
-#define FBDEV_DRIVER_NAME       "fbdev"
+#define PVRSGX_VERSION          4000
+#define PVRSGX_NAME             "PVRSGX"
+#define PVRSGX_DRIVER_NAME      "pvrsgx"
 
 #if 0
 #define CALLTRACE(...)		ErrorF(__VA_ARGS__)

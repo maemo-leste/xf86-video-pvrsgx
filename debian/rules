@@ -56,7 +56,7 @@ build-stamp:  config.status
 
 	# Add here commands to compile the package.
 	$(MAKE)
-	#docbook-to-man debian/xserver-xorg-video-fbdev.sgml > xserver-xorg-video-fbdev.1
+	#docbook-to-man debian/xserver-xorg-video-pvrsgx.sgml > xserver-xorg-video-pvrsgx.1
 
 	touch $@
 
@@ -77,7 +77,7 @@ install: build
 	dh_clean -k 
 	dh_installdirs
 
-	$(MAKE) DESTDIR=$(CURDIR)/debian/xserver-xorg-video-fbdev install
+	$(MAKE) DESTDIR=$(CURDIR)/debian/xserver-xorg-video-pvrsgx install
 
 
 # Build architecture-independent files here.
@@ -104,7 +104,7 @@ binary-arch: build install
 #	dh_installinfo
 	dh_installman
 	dh_link
-	dh_strip --dbg-package=xserver-xorg-video-fbdev-dbg
+	dh_strip --dbg-package=xserver-xorg-video-pvrsgx-dbg
 	dh_compress
 	dh_fixperms
 #	dh_perl

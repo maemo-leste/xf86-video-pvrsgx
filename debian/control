@@ -1,11 +1,11 @@
-Source: xserver-xorg-video-fbdev
+Source: xf86-video-pvrsgx
 Section: x11
 Priority: optional
 Maintainer: Ville Syrjala <ville.syrjala@nokia.com>
 Build-Depends: debhelper (>= 5.0.0), pkg-config, xserver-xorg-dev (>= 2:1.9.2-7), x11proto-core-dev, x11proto-fonts-dev, x11proto-randr-dev, x11proto-render-dev, x11proto-video-dev, x11proto-dri2-dev, x11proto-kb-dev, dpkg-dev (>= 1.14.17), opengles-sgx-img-common-dev (>= 1.4.20090218.132), xutils-dev (>= 1:7.4+4), linux-kernel-headers (>= 2.6.28-20091104r01), autoconf, automake, libtool
 Standards-Version: 3.8.0
 
-Package: xserver-xorg-video-fbdev
+Package: xserver-xorg-video-pvrsgx
 Architecture: armel
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${xserver:Depends}
 Provides: ${xviddriver:Provides}
@@ -15,12 +15,12 @@ Description: X.Org X server -- fbdev display driver
  This package provides the driver for TI's OMAP 3 SoCs with
  a POWERVR SGX graphics core.
 
-Package: xserver-xorg-video-fbdev-dbg
+Package: xserver-xorg-video-pvrsgx-dbg
 Architecture: armel
 Section: debug
 Priority: extra
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${xserver:Depends}, xserver-xorg-video-fbdev (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${xserver:Depends}, xserver-xorg-video-pvrsgx (= ${binary:Version})
 Provides: ${xviddriver:Provides}
 Description: X.Org X server -- fbdev display driver debug symbols
- This package provides debug symbols for the xserver-xorg-video-fbdev
+ This package provides debug symbols for the xserver-xorg-video-pvrsgx
  package.

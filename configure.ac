@@ -21,10 +21,7 @@
 # Process this file with autoconf to produce a configure script
 
 AC_PREREQ(2.57)
-AC_INIT([xf86-video-fbdev],
-        0.4.0,
-        [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
-        xf86-video-fbdev)
+AC_INIT([xf86-video-pvrsgx], 0.4.0, [spinal.by@gmail.com])
 
 AC_CONFIG_SRCDIR([Makefile.am])
 AM_CONFIG_HEADER([config.h])

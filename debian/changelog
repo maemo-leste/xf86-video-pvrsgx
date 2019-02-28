@@ -1,3 +1,11 @@
+xf86-video-pvrsgx (1:0.4.4.1~pre1) unstable; urgency=medium
+
+  * Rename package: xserver-xorg-video-fbdev -> xserver-xorg-video-pvrsgx
+  * Change driver name: fbdev -> pvrsgx
+  * Port upstream changes from X.Org fbdev driver
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Thu, 28 Feb 2019 23:31:56 +0300
+
 xserver-xorg-video-fbdev (1:0.4.0-245+0m6) karmic; urgency=low
 
   * This entry has been added by BIFH queue processor

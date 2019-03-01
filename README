@@ -1,0 +1,8 @@
+Video driver for TI's OMAP 3 SoCs with a PowerVR SGX graphics core
+==================================================================
+
+This work is based on free xorg-xf86-video-fbdev driver which was rewritten
+by Nokia, Nemo/Mer, Jolla programmers to make it work with PowerVR SGX graphics
+hardware.
+
+This package follows changes in upstream Xorg fbdev video driver.

@@ -22,7 +22,7 @@
 
 #include "fbdev.h"
 #include "sgx_pvr2d.h"
-#include "services.h"
+#include <services.h>
 #include "sgx_pvr2d_alloc.h"
 
 typedef struct _segments {

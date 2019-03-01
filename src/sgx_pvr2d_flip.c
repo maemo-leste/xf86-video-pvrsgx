@@ -21,7 +21,7 @@
  */
 
 #include "sgx_pvr2d_flip.h"
-#include "xf86.h" /* ErrorF */
+#include <xf86.h> /* ErrorF */
 
 static int pvr2d_flip_get_bufs(PVR2DCONTEXTHANDLE ctx, unsigned buf_len,
 				void **bufs_in, unsigned num_bufs,

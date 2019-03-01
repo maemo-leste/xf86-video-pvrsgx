@@ -33,22 +33,22 @@
 
 /* all driver need this */
 #include <X11/Xatom.h>
-#include "xf86.h"
-#include "xf86_OSproc.h"
+#include <xf86.h>
+#include <xf86_OSproc.h>
 
-#include "mipointer.h"
-#include "micmap.h"
-#include "colormapst.h"
-#include "xf86cmap.h"
-#include "shadow.h"
-#include "xf86Xinput.h"
+#include <mipointer.h>
+#include <micmap.h>
+#include <colormapst.h>
+#include <xf86cmap.h>
+#include <shadow.h>
+#include <xf86Xinput.h>
 
 /* for visuals */
-#include "fb.h"
+#include <fb.h>
 
-#include "xf86Crtc.h"
-#include "xf86RandR12.h"
-#include "xf86xv.h"
+#include <xf86Crtc.h>
+#include <xf86RandR12.h>
+#include <xf86xv.h>
 
 #include "fbdev.h"
 #include <linux/fb.h>

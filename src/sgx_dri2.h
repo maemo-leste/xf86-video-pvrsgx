@@ -26,7 +26,7 @@
 
 #include <stdbool.h>
 
-#include "dri2.h"
+#include <dri2.h>
 
 struct dri2_swap_request {
 	enum {

@@ -26,7 +26,7 @@
 #include "sgx_pvr2d_alloc.h"
 #include "sgx_dri2.h"
 
-#include "exa.h"
+#include <exa.h>
 #include "perf.h"
 #include "x-hash.h"
 

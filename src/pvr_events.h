@@ -3,7 +3,7 @@
 #define PVR_EVENTS_H
 
 #include <linux/types.h>
-#include "servicesext.h"
+#include <servicesext.h>
 
 /*
  * Header for events written back to userspace on the drm fd. The

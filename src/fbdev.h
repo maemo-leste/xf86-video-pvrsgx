@@ -27,18 +27,18 @@
 #include "config.h"
 #endif
 
-#include "xorg-server.h"
+#include <xorg-server.h>
 
-#include "xf86.h"
-#include "xf86_OSproc.h"
+#include <xf86.h>
+#include <xf86_OSproc.h>
 
-#include "dgaproc.h"
+#include <dgaproc.h>
 
-#include "xf86Crtc.h"
+#include <xf86Crtc.h>
 
-#include "fbdevhw.h"
+#include <fbdevhw.h>
 
-#include "xf86xv.h"
+#include <xf86xv.h>
 
 #include "compat-api.h"
 

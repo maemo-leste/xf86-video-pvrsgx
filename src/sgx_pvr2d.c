@@ -25,11 +25,11 @@
 #include "sgx_pvr2d.h"
 #include "sgx_pvr2d_alloc.h"
 #include "sgx_exa_user.h"
-#include "services.h"
+#include <services.h>
 #include "pvr_events.h"
 #include "perf.h"
 
-#include "exa.h"
+#include <exa.h>
 
 struct pvr2d_screen *pvr2d_get_screen(void)
 {

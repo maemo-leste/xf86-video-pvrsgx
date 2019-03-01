@@ -23,13 +23,13 @@
 #ifndef SGX_PVR2D_H
 #define SGX_PVR2D_H
 
-#include "xorg-server.h"
-#include "xf86.h"
+#include <xorg-server.h>
+#include <xf86.h>
 
 #define PVR2D_EXT_BLIT 1
-#include "pvr2d.h"
-#include "sgxfeaturedefs.h"
-#include "sgxdefs.h"
+#include <pvr2d.h>
+#include <sgxfeaturedefs.h>
+#include <sgxdefs.h>
 
 #include <sys/shm.h>
 #include <sys/types.h>

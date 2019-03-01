@@ -32,7 +32,7 @@
 #endif
 
 #include "fbdev.h"
-#include "fourcc.h"
+#include <fourcc.h>
 #include "omap_video_formats.h"
 
 /**

@@ -26,10 +26,10 @@
 #include "sgx_xv.h"
 #include "omap_video.h"
 
-#include "xf86xv.h"
+#include <xf86xv.h>
 #include <X11/extensions/Xv.h>
-#include "fourcc.h"
-#include "damage.h"
+#include <fourcc.h>
+#include <damage.h>
 
 #define BRIGHTNESS_DEFAULT_VALUE   0
 #define BRIGHTNESS_MIN            -50

@@ -35,12 +35,12 @@
 
 #include <X11/extensions/dpmsconst.h>
 
-#include "scrnintstr.h"
-#include "windowstr.h"
-#include "regionstr.h"
-#include "damage.h"
-#include "damagestr.h"
-#include "xf86Crtc.h"
+#include <scrnintstr.h>
+#include <windowstr.h>
+#include <regionstr.h>
+#include <damage.h>
+#include <damagestr.h>
+#include <xf86Crtc.h>
 
 #include "fbdev.h"
 #include "extfb.h"

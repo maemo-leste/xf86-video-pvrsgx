@@ -20,7 +20,8 @@
  * THE SOFTWARE.
  */
 
-#include "exa.h"
+#include <exa.h>
+
 #include "sgx_exa.h"
 #include "sgx_exa_user.h"
 

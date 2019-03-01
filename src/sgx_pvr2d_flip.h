@@ -24,8 +24,8 @@
 #define SGX_PVR2D_FLIP_H
 
 #include <X11/Xdefs.h>
-#include "pixmap.h"
-#include "pvr2d.h"
+#include <pixmap.h>
+#include <pvr2d.h>
 
 struct pvr2d_fs_flip_buf {
 	PVR2DMEMINFO *mem_info;

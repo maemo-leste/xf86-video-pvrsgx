@@ -20,12 +20,12 @@
  * THE SOFTWARE.
  */
 
-#include "xorg-server.h"
-#include "xf86.h"
-#include "exa.h"
+#include <xorg-server.h>
+#include <xf86.h>
+#include <exa.h>
 
-#include "dri2.h"
-#include "pvr2d.h"
+#include <dri2.h>
+#include <pvr2d.h>
 
 #include "extfb.h"
 #include "sgx_dri2.h"

@@ -26,7 +26,7 @@
 #include "sgx_dri2.h"
 #include "perf.h"
 
-#include "exa.h"
+#include <exa.h>
 #include "x-hash.h"
 
 /* PVR2D memory can only be freed once all PVR2D operations using it have

@@ -32,11 +32,11 @@
 #include <X11/Xatom.h>
 #include <X11/extensions/Xv.h>
 #include <X11/extensions/dpmsconst.h>
-#include "fourcc.h"
-#include "damage.h"
+#include <fourcc.h>
+#include <damage.h>
 
-#include "windowstr.h"
-#include "xf86Crtc.h"
+#include <windowstr.h>
+#include <xf86Crtc.h>
 #include "omap_video.h"
 #include "omap_video_formats.h"
 #include "omap_sysfs.h"

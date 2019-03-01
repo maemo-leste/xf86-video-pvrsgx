@@ -743,9 +743,10 @@ static void change_overlay_property(struct omap_video_info *video_info, int val)
 	/* Walk the tree to get the top-level window. */
 	for (window = (WindowPtr) video_info->drawable;
 	     window && window->parent; window = window->parent) {
-		err = ChangeWindowProperty(window, _omap_video_overlay,
-					   XA_INTEGER, 8, PropModeReplace,
-					   1, &val, TRUE);
+		err = dixChangeWindowProperty(serverClient, window,
+					      _omap_video_overlay,
+					      XA_INTEGER, 8, PropModeReplace,
+					      1, &val, TRUE);
 		if (err != Success)
 			ErrorF("change_overlay_property: failed to change property\n");
 	}

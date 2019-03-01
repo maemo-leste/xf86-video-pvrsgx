@@ -331,6 +331,7 @@ static void PVR2DSolid(PixmapPtr pDstPixmap, int x1, int y1, int x2, int y2)
 		result = PVR2DBlt(pvr2d_get_screen()->context, &pvr2dblt);
 		DBG("%s HW(%p, %d, %d, %d, %d) => %d\n", __func__, pDstPixmap, x1, y1, x2, y2, result);
 		PERF_INCREMENT(hw_solid);
+                (void)result;
 	}
 }
 
@@ -521,6 +522,7 @@ static void PVR2DCopy(PixmapPtr pDstPixmap, int srcX, int srcY, int dstX,
 		DBG("%s HW(%p, %d, %d, %d, %d, %d, %d) => %d\n", __func__,
 		    pDstPixmap, srcX, srcY, dstX, dstY, width, height, result);
 		PERF_INCREMENT(hw_copy);
+                (void)result;
 	}
 
 	DBG("%s (pDstMemInfo = %p, DstSurfWidth = %lu, DstSurfHeight = %lu, DstStride = %ld)\n",

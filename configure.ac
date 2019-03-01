@@ -31,6 +31,12 @@ AC_CONFIG_AUX_DIR(.)
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
+# Prevent producing broken configure script
+m4_ifndef([PKG_PROG_PKG_CONFIG],
+          [m4_fatal([must install pkg-config before running autoconf/autogen])])
+m4_ifndef([XORG_DRIVER_CHECK_EXT],
+          [m4_fatal([must install xserver-xorg-dev before running autoconf/autogen])])
+
 # Require X.Org macros 1.8 or later for MAN_SUBSTS set by XORG_MANPAGE_SECTIONS
 m4_ifndef([XORG_MACROS_VERSION],
           [m4_fatal([must install xorg-macros 1.8 or later before running autoconf/autogen])])

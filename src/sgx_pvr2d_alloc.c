@@ -95,15 +95,14 @@ Bool PVR2DDelayedMemDestroy(Bool wait)
 	return FALSE;
 }
 
-static void (*SavedBlockHandler) (int, pointer, pointer, pointer);
+static void (*SavedBlockHandler) (BLOCKHANDLER_ARGS_DECL);
 
-static void PVR2DBlockHandler(int i, pointer blockData, pointer pTimeout,
-			      pointer pReadmask)
+static void PVR2DBlockHandler(BLOCKHANDLER_ARGS_DECL)
 {
-	ScreenPtr pScreen = screenInfo.screens[i];
+	SCREEN_PTR(arg);
 
 	pScreen->BlockHandler = SavedBlockHandler;
-	(*pScreen->BlockHandler) (i, blockData, pTimeout, pReadmask);
+	(*pScreen->BlockHandler) (BLOCKHANDLER_ARGS);
 
 	if (PVR2DDelayedMemDestroy(FALSE)) {
 		/* More work -> keep block handler registered */

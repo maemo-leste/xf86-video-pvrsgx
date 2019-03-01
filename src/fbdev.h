@@ -169,7 +169,9 @@ typedef struct {
 
 #define FBDEVPTR(p) ((FBDevPtr)((p)->driverPrivate))
 #define MAKE_ATOM(a) MakeAtom(a, sizeof(a) - 1, TRUE)
+#ifndef ARRAY_SIZE
 #define ARRAY_SIZE(a) (int)(sizeof(a) / sizeof(a[0]))
+#endif
 #define ALIGN(x, a) (((x) + (a) - 1) & ~((a) - 1))
 
 #define SWAP(a, b) \

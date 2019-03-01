@@ -22,7 +22,7 @@
 
 # Initialize Autoconf
 AC_PREREQ([2.60])
-AC_INIT([xf86-video-pvrsgx], [0.4.3], [spinal.by@gmail.com])
+AC_INIT([xf86-video-pvrsgx], [0.4.4], [spinal.by@gmail.com])
 AC_CONFIG_SRCDIR([Makefile.am])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR(.)

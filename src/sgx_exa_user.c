@@ -20,6 +20,7 @@
  * THE SOFTWARE.
  */
 
+#include <xorg-server.h>
 #include <exa.h>
 
 #include "sgx_exa.h"

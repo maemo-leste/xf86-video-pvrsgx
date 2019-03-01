@@ -135,7 +135,11 @@ void ExtFBCloseScreen(ScreenPtr pScreen)
 	FBDevPtr fbdev = FBDEVPTR(pScrn);
 
 	if (fbdev->extfb.damage) {
+#if XORG_VERSION_CURRENT >= XORG_VERSION_NUMERIC(1,14,99,2,0)
+		DamageUnregister(fbdev->extfb.damage);
+#else
 		DamageUnregister(&fbdev->pixmap->drawable, fbdev->extfb.damage);
+#endif
 		DamageDestroy(fbdev->extfb.damage);
 	}
 }

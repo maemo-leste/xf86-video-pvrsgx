@@ -81,8 +81,8 @@ if test "x$FLIP_STATS" = xyes; then
     AC_DEFINE(FLIP_STATS, 1, [Enable flip statistics framework])
 fi
 
-# Checks for libraries.
-
+# Check for headers
+AC_CHECK_HEADER(pvr2d.h, , AC_MSG_ERROR(PowerVR SGX developement headers not found))
 
 AC_SUBST([moduledir])
 

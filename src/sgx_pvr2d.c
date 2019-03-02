@@ -150,6 +150,7 @@ Bool PVR2D_PreFBReset(ScrnInfoPtr scrn_info)
 	return TRUE;
 }
 
+#if !HAVE_NOTIFY_FD
 static void pvr2d_wakeup_handler(pointer data, int err, pointer p)
 {
 	int fd = (int)data;
@@ -197,6 +198,47 @@ static void pvr2d_wakeup_handler(pointer data, int err, pointer p)
 		}
 	}
 }
+#else
+static void pvr2d_notify_fd(int fd, int ready, void *data) {
+	char buf[1024];
+	int len;
+	int i;
+	const struct pvr_event *e;
+
+	len = read(fd, buf, sizeof(buf));
+
+	if (len == 0 || len < sizeof(struct pvr_event))
+		return;
+
+	for (i = 0; i < len; i += e->length) {
+		struct pvr2d_screen *screen = pvr2d_get_screen();
+
+		e = (const struct pvr_event *)&buf[i];
+
+		if (e->length < sizeof(struct pvr_event) || e->length + i > len)
+			break;
+
+		if (e->type == PVR_EVENT_SYNC) {
+			const struct pvr_event_sync *sync =
+				(const struct pvr_event_sync *)e;
+
+			 if (screen->sync_event_handler != 0)
+				 screen->sync_event_handler(fd, sync->sync_info,
+							    sync->tv_sec, sync->tv_usec,
+							    sync->user_data);
+		} else if (e->type == PVR_EVENT_FLIP || e->type == PVR_EVENT_UPDATE) {
+			const struct pvr_event_flip *flip =
+				(const struct pvr_event_flip *)e;
+
+			if (screen->flip_event_handler != 0)
+				screen->flip_event_handler(fd,
+							   flip->overlay,
+							   flip->tv_sec, flip->tv_usec,
+							   flip->user_data);
+		}
+	}
+}
+#endif
 
 Bool PVR2D_Init(ScrnInfoPtr scrn_info)
 {
@@ -262,17 +304,24 @@ Bool PVR2D_Init(ScrnInfoPtr scrn_info)
 	if (screen->fd < 0)
 		goto destroy_page_flip;
 
+#if !HAVE_NOTIFY_FD
 	AddGeneralSocket(screen->fd);
 
 	if (!RegisterBlockAndWakeupHandlers((BlockHandlerProcPtr)NoopDDA,
 					    pvr2d_wakeup_handler,
 					    (pointer)screen->fd))
 		goto remove_socket;
+#else
+	if (!SetNotifyFd(screen->fd, pvr2d_notify_fd, X_NOTIFY_READ, NULL))
+		goto destroy_page_flip;
+#endif
 
 	return TRUE;
 
+#if !HAVE_NOTIFY_FD
  remove_socket:
 	RemoveGeneralSocket(screen->fd);
+#endif
  destroy_page_flip:
 #if SGX_CACHE_SEGMENTS
 	DeInitSharedSegments();
@@ -289,7 +338,11 @@ void PVR2D_DeInit(void)
 {
 	struct pvr2d_screen *screen = pvr2d_get_screen();
 
+#if !HAVE_NOTIFY_FD
 	RemoveGeneralSocket(screen->fd);
+#else
+	RemoveNotifyFd(screen->fd);
+#endif
 
 #if SGX_CACHE_SEGMENTS
 	DeInitSharedSegments();

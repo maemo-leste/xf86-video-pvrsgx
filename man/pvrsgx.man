@@ -2,7 +2,7 @@
 .ds q \N'34'
 .TH PVRSGX __drivermansuffix__ __vendorversion__
 .SH NAME
-pvrsgx \- video driver for TI's OMAP 3 SoCs with a POWERVR SGX graphics core
+pvrsgx \- video driver for TI's OMAP3 SoCs with a PowerVR SGX graphics core
 .SH SYNOPSIS
 .nf
 .B "Section \*qDevice\*q"
@@ -20,7 +20,7 @@ supported for builtin LCD and TV.
 .SH SUPPORTED HARDWARE
 The 
 .B pvrsgx
-driver supports TI's OMAP 3 SoCs with a POWERVR SGX graphics core.
+driver supports TI's OMAP3 SoCs with a PowerVR SGX graphics core.
 .SH CONFIGURATION DETAILS
 Please refer to __xconfigfile__(__filemansuffix__) for general configuration
 details.  This section only covers configuration details specific to

@@ -31,9 +31,9 @@ Depends:
 Provides: ${xviddriver:Provides}
 Replaces: xserver-xorg (<< 6.8.2-35), xserver-xorg-driver-fbdev
 Conflicts: xserver-xorg-driver-fbdev
-Description: X.Org X server -- fbdev display driver
- This package provides the driver for TI's OMAP 3 SoCs with
- a POWERVR SGX graphics core.
+Description: X.Org X server -- PowerVR SGX display driver
+ This package provides the driver for TI's OMAP3 SoCs with
+ a PowerVR SGX graphics core.
 
 Package: xserver-xorg-video-pvrsgx-dbg
 Architecture: armel armhf

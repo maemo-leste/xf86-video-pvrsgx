@@ -5,21 +5,9 @@ Maintainer: Arthur Demchenkov <spinal.by@gmail.com>
 Build-Depends:
  debhelper (>= 5.0.0),
  pkg-config,
- xserver-xorg-dev (>= 2:1.9.2-7),
- x11proto-core-dev,
- x11proto-fonts-dev,
- x11proto-randr-dev,
- x11proto-render-dev,
- x11proto-video-dev,
- x11proto-dri2-dev,
- x11proto-kb-dev,
- dpkg-dev (>= 1.14.17),
- opengles-sgx-img-common-dev (>= 1.4.20090218.132),
- xutils-dev (>= 1:7.4+4),
- linux-kernel-headers (>= 2.6.28-20091104r01),
- autoconf,
- automake,
- libtool
+ xserver-xorg-dev (>= 2:1.11.99.901),
+ xutils-dev (>= 1:7.5+1),
+ ti-omap3-sgx-dev (>=1.4.268.4),
 Standards-Version: 3.8.0
 
 Package: xserver-xorg-video-pvrsgx

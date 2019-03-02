@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 5.0.0), pkg-config, xserver-xorg-dev (>= 2:1.9.2-7)
 Standards-Version: 3.8.0
 
 Package: xserver-xorg-video-pvrsgx
-Architecture: armel
+Architecture: armel armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${xserver:Depends}
 Provides: ${xviddriver:Provides}
 Replaces: xserver-xorg (<< 6.8.2-35), xserver-xorg-driver-fbdev
@@ -16,7 +16,7 @@ Description: X.Org X server -- fbdev display driver
  a POWERVR SGX graphics core.
 
 Package: xserver-xorg-video-pvrsgx-dbg
-Architecture: armel
+Architecture: armel armhf
 Section: debug
 Priority: extra
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${xserver:Depends}, xserver-xorg-video-pvrsgx (= ${binary:Version})

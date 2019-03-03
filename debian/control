@@ -3,36 +3,21 @@ Section: x11
 Priority: optional
 Maintainer: Arthur Demchenkov <spinal.by@gmail.com>
 Build-Depends:
- debhelper (>= 5.0.0),
+ debhelper (>= 10),
  pkg-config,
  xserver-xorg-dev (>= 2:1.11.99.901),
  xutils-dev (>= 1:7.5+1),
  ti-omap3-sgx-dev (>=1.4.268.4),
-Standards-Version: 3.8.0
+Standards-Version: 4.3.0
 
 Package: xserver-xorg-video-pvrsgx
 Architecture: armel armhf
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- ${xserver:Depends}
-Provides: ${xviddriver:Provides}
-Replaces: xserver-xorg (<< 6.8.2-35), xserver-xorg-driver-fbdev
-Conflicts: xserver-xorg-driver-fbdev
+ ${xviddriver:Depends},
+Provides:
+ ${xviddriver:Provides}
 Description: X.Org X server -- PowerVR SGX display driver
  This package provides the driver for TI's OMAP3 SoCs with
  a PowerVR SGX graphics core.
-
-Package: xserver-xorg-video-pvrsgx-dbg
-Architecture: armel armhf
-Section: debug
-Priority: extra
-Depends:
- ${shlibs:Depends},
- ${misc:Depends},
- ${xserver:Depends},
- xserver-xorg-video-pvrsgx (= ${binary:Version})
-Provides: ${xviddriver:Provides}
-Description: X.Org X server -- fbdev display driver debug symbols
- This package provides debug symbols for the xserver-xorg-video-pvrsgx
- package.

@@ -1,3 +1,10 @@
+xf86-video-pvrsgx (1:0.4.4.1~pre2) unstable; urgency=medium
+
+  * Port to X server ABI 23
+  * Disable glx module, it causes segfaults
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Sun, 03 Mar 2019 11:39:34 +0300
+
 xf86-video-pvrsgx (1:0.4.4.1~pre1) unstable; urgency=medium
 
   * Rename package: xserver-xorg-video-fbdev -> xserver-xorg-video-pvrsgx

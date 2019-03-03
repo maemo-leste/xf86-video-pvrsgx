@@ -8,6 +8,11 @@ endif
 override_dh_auto_configure:
 	dh_auto_configure -- --libdir=/usr/lib
 
+# Don't install *.la files
+override_dh_install:
+	find debian/*/ -name '*.la' -delete
+	dh_install
+
 # That's a plugin, use appropriate warning level:
 override_dh_shlibdeps:
 	dh_shlibdeps -- --warnings=6

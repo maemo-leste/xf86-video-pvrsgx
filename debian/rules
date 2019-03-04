@@ -1,9 +1,11 @@
 #!/usr/bin/make -f
 
-CFLAGS += -Wall
+DEB_CFLAGS_MAINT_APPEND += -Wall
 ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
-        CFLAGS += -DDEBUG
+        DEB_CPPFLAGS_MAINT_APPEND += -DDEBUG
 endif
+
+export DEB_CPPFLAGS_MAINT_APPEND DEB_CFLAGS_MAINT_APPEND
 
 override_dh_auto_configure:
 	dh_auto_configure -- --libdir=/usr/lib

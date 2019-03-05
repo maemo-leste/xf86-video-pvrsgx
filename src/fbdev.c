@@ -731,7 +731,7 @@ static void FBDevInitConf(ScrnInfoPtr pScrn)
 	/* SwapMethod */
 
 	from = X_DEFAULT;
-	fPtr->conf.swap_control = DRI2_SWAP_CONTROL_FLIP;
+	fPtr->conf.swap_control = DRI2_SWAP_CONTROL_BLIT;
 
 	s = xf86GetOptValString(fPtr->Options, OPTION_SWAP_CONTROL);
 	if (s != NULL) {

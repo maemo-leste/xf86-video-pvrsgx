@@ -1,3 +1,9 @@
+xf86-video-pvrsgx (1:0.4.4.2) unstable; urgency=medium
+
+  * Change swap method to flip in xorg.conf file
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Thu, 28 Mar 2019 15:30:20 +0300
+
 xf86-video-pvrsgx (1:0.4.4.1) unstable; urgency=medium
 
   * Add driver entry to xorg.conf

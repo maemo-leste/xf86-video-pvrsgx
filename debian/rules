@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
-DEB_CFLAGS_MAINT_APPEND += -Wall
+DEB_CFLAGS_MAINT_APPEND += -Wall -ggdb -g
+
 ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
         DEB_CPPFLAGS_MAINT_APPEND += -DDEBUG
 endif
